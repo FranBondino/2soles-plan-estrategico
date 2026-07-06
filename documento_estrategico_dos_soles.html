@@ -23,10 +23,9 @@
             --accent-brand: #A7144C;
             --accent-solar: #E08A22;
             --accent-soft: rgba(167, 20, 76, 0.05);
-            --accent-soft-solar: rgba(224, 138, 34, 0.05);
             --border-color: rgba(0, 0, 0, 0.06);
             --font-main: 'Plus Jakarta Sans', sans-serif;
-            --sidebar-width: 280px;
+            --sidebar-width: 300px;
             --transition-speed: 0.3s;
         }
 
@@ -42,7 +41,7 @@
             font-family: var(--font-main);
             background-color: var(--bg-primary);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.7;
             display: flex;
             min-height: 100vh;
         }
@@ -61,7 +60,7 @@
             z-index: 100;
             display: flex;
             flex-direction: column;
-            padding: 2rem 1.5rem;
+            padding: 2.5rem 1.8rem;
             overflow-y: auto;
         }
 
@@ -72,17 +71,17 @@
         }
 
         .sidebar-brand h1 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 800;
             color: var(--accent-brand);
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
         }
 
         .sidebar-brand span {
             font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             color: var(--text-secondary);
         }
 
@@ -90,17 +89,17 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 0.4rem;
+            gap: 0.3rem;
         }
 
         .sidebar-menu li a {
             display: block;
-            padding: 0.8rem 1rem;
+            padding: 0.7rem 0.9rem;
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 600;
-            border-radius: 10px;
+            border-radius: 8px;
             transition: all var(--transition-speed) ease;
         }
 
@@ -116,25 +115,39 @@
         main.main-content {
             margin-left: var(--sidebar-width);
             flex: 1;
-            padding: 4rem clamp(1.5rem, 5vw, 5rem);
+            padding: 5rem clamp(1.5rem, 6vw, 6rem);
             max-width: 1200px;
             width: 100%;
         }
 
         section.doc-section {
-            margin-bottom: 6rem;
-            padding-top: 2rem;
+            margin-bottom: 7rem;
+            padding-top: 1rem;
         }
 
         /* Typography */
+        .slide-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-solar);
+            background: rgba(224, 138, 34, 0.08);
+            padding: 0.4em 1em;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
         h2.section-title {
-            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
             font-weight: 800;
             color: var(--accent-brand);
-            margin-bottom: 2rem;
-            letter-spacing: -0.03em;
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.04em;
             position: relative;
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.6rem;
+            line-height: 1.15;
         }
 
         h2.section-title::after {
@@ -149,83 +162,96 @@
         }
 
         h3.subsection-title {
-            font-size: clamp(1.2rem, 2vw, 1.6rem);
+            font-size: clamp(1.3rem, 2.2vw, 1.8rem);
             font-weight: 700;
             color: var(--text-primary);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
+            margin-top: 3rem;
+            margin-bottom: 1.2rem;
             letter-spacing: -0.02em;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 0.4rem;
         }
 
         p {
             font-size: 1.05rem;
             color: var(--text-secondary);
-            margin-bottom: 1.2rem;
-            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
         }
 
         .lead-text {
-            font-size: 1.2rem;
-            font-weight: 500;
+            font-size: 1.25rem;
+            font-weight: 600;
             color: var(--text-primary);
+            line-height: 1.6;
         }
 
         /* Highlight Boxes / Callouts */
         .callout-box {
             background-color: var(--accent-soft);
-            border-left: 4px solid var(--accent-brand);
-            padding: 1.5rem 2rem;
-            border-radius: 0 16px 16px 0;
-            margin: 2rem 0;
+            border-left: 5px solid var(--accent-brand);
+            padding: 1.8rem 2.2rem;
+            border-radius: 0 20px 20px 0;
+            margin: 2.5rem 0;
         }
 
         .callout-box h4 {
             color: var(--accent-brand);
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .callout-box p {
             margin-bottom: 0;
-            font-size: 1rem;
+            font-size: 1.05rem;
+            color: var(--text-primary);
         }
 
         /* Grid layouts */
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin: 2rem 0;
+            gap: 2.5rem;
+            margin: 2.5rem 0;
         }
 
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin: 2rem 0;
+            gap: 2rem;
+            margin: 2.5rem 0;
         }
 
         /* Cards */
         .card {
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+            border-radius: 20px;
+            padding: 2.2rem;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.01);
             transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(167, 20, 76, 0.05);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 36px rgba(167, 20, 76, 0.06);
         }
 
         .card h4 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.8rem;
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
             color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .card p {
+            font-size: 0.98rem;
+            color: var(--text-secondary);
+            margin-bottom: 0;
         }
 
         /* Styled Lists */
@@ -234,13 +260,13 @@
             margin: 1.5rem 0;
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
+            gap: 1rem;
         }
 
         ul.styled-list li {
             position: relative;
-            padding-left: 2rem;
-            font-size: 1rem;
+            padding-left: 2.2rem;
+            font-size: 1.02rem;
             color: var(--text-secondary);
         }
 
@@ -248,7 +274,7 @@
             content: '';
             position: absolute;
             left: 0;
-            top: 0.55rem;
+            top: 0.65rem;
             width: 8px;
             height: 8px;
             border-radius: 50%;
@@ -259,9 +285,9 @@
         table.styled-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 2rem 0;
+            margin: 2.5rem 0;
             background: var(--bg-card);
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
             border: 1px solid var(--border-color);
         }
@@ -270,16 +296,18 @@
             background-color: var(--accent-soft);
             color: var(--accent-brand);
             text-align: left;
-            padding: 1.2rem 1.5rem;
-            font-weight: 700;
-            font-size: 0.95rem;
+            padding: 1.4rem 1.8rem;
+            font-weight: 800;
+            font-size: 0.98rem;
+            letter-spacing: 0.02em;
         }
 
         table.styled-table td {
-            padding: 1.2rem 1.5rem;
+            padding: 1.4rem 1.8rem;
             border-bottom: 1px solid var(--border-color);
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 1rem;
+            vertical-align: top;
         }
 
         table.styled-table tr:last-child td {
@@ -287,55 +315,52 @@
         }
 
         /* ===========================================
-           SWOT MATRIX CUSTOM DESIGN
+           SWOT MATRIX DESIGN
            =========================================== */
         .swot-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin: 2rem 0;
+            gap: 2rem;
+            margin: 2.5rem 0;
         }
 
         .swot-card {
-            padding: 2rem;
-            border-radius: 20px;
+            padding: 2.5rem;
+            border-radius: 24px;
             border: 1px solid var(--border-color);
+            background: var(--bg-card);
         }
 
         .swot-card.fortalezas {
-            background-color: rgba(39, 174, 96, 0.04);
-            border-left: 5px solid #27ae60;
+            background-color: rgba(39, 174, 96, 0.02);
+            border-left: 6px solid #27ae60;
         }
-
         .swot-card.fortalezas h3 { color: #27ae60; }
 
         .swot-card.debilidades {
-            background-color: rgba(192, 57, 43, 0.04);
-            border-left: 5px solid #c0392b;
+            background-color: rgba(192, 57, 43, 0.02);
+            border-left: 6px solid #c0392b;
         }
-
         .swot-card.debilidades h3 { color: #c0392b; }
 
         .swot-card.oportunidades {
-            background-color: rgba(224, 138, 34, 0.04);
-            border-left: 5px solid #e08a22;
+            background-color: rgba(224, 138, 34, 0.02);
+            border-left: 6px solid #e08a22;
         }
-
         .swot-card.oportunidades h3 { color: #e08a22; }
 
         .swot-card.amenazas {
-            background-color: rgba(142, 68, 173, 0.04);
-            border-left: 5px solid #8e44ad;
+            background-color: rgba(142, 68, 173, 0.02);
+            border-left: 6px solid #8e44ad;
         }
-
         .swot-card.amenazas h3 { color: #8e44ad; }
 
         .swot-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 800;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
         }
 
         /* ===========================================
@@ -369,12 +394,12 @@
             padding: 0.2rem;
         }
 
-        /* Responsive Breakpoint: Mobile & Tablets */
+        /* Responsive Breakpoints */
         @media (max-width: 992px) {
             aside.sidebar {
                 transform: translateX(-100%);
                 transition: transform var(--transition-speed) ease;
-                width: 280px;
+                width: 300px;
             }
 
             aside.sidebar.open {
@@ -392,7 +417,7 @@
 
             .grid-2, .grid-3, .swot-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
+                gap: 1.8rem;
             }
         }
     </style>
@@ -420,14 +445,20 @@
         <nav>
             <ul class="sidebar-menu">
                 <li class="active"><a href="#manifiesto">Manifiesto de Marca</a></li>
-                <li><a href="#resumen">Resumen Ejecutivo</a></li>
-                <li><a href="#contexto">Contexto de Mercado</a></li>
-                <li><a href="#benchmark">Benchmark</a></li>
-                <li><a href="#diagnostico">Diagnóstico</a></li>
-                <li><a href="#foda">Matriz FODA</a></li>
-                <li><a href="#personas">Customer Personas</a></li>
-                <li><a href="#ecosistema">Ecosistema Dos Soles</a></li>
-                <li><a href="#digital">Estrategia Digital</a></li>
+                <li><a href="#resumen">1. Resumen Ejecutivo</a></li>
+                <li><a href="#contexto">2. Contexto de Mercado</a></li>
+                <li><a href="#tendencias">3. Tendencias del Sector</a></li>
+                <li><a href="#benchmark">4. Benchmark Estratégico</a></li>
+                <li><a href="#diagnostico">5. Diagnóstico de Marca</a></li>
+                <li><a href="#foda">6. Matriz FODA</a></li>
+                <li><a href="#analisis-competitivo">7. Análisis Competitivo</a></li>
+                <li><a href="#insights">8. Insights del Consumidor</a></li>
+                <li><a href="#personas">9. Customer Personas</a></li>
+                <li><a href="#journey">10. Customer Journey</a></li>
+                <li><a href="#estrategia">11. Evolución de Marca</a></li>
+                <li><a href="#identidad">12. Misión, Visión, Valores</a></li>
+                <li><a href="#ecosistema">13. Ecosistema Dos Soles</a></li>
+                <li><a href="#digital">14. Estrategia Digital</a></li>
             </ul>
         </nav>
     </aside>
@@ -435,45 +466,71 @@
     <!-- Área de Contenido Principal -->
     <main class="main-content">
 
-        <!-- SECCIÓN 1: MANIFIESTO -->
+        <!-- MANIFIESTO -->
         <section id="manifiesto" class="doc-section">
-            <span class="slide-tag">Filosofía de Marca</span>
-            <h2 class="section-title" style="margin-top: 1rem;">Manifiesto de Dos Soles</h2>
+            <span class="slide-tag">Filosofía Inspiracional</span>
+            <h2 class="section-title" style="margin-top: 1rem;">Manifiesto de Marca</h2>
             
-            <p class="lead-text" style="font-style: italic; color: var(--accent-brand); margin: 2rem 0; font-weight: 600; line-height: 1.8;">
-                "Para quienes hacen de la belleza una profesión. Creemos en quienes comienzan antes que salga el sol para abrir su salón. En quienes estudian cada tendencia. En quienes nunca dejan de capacitarse."
+            <p class="lead-text" style="color: var(--accent-brand); margin: 2rem 0; font-weight: 700; line-height: 1.8;">
+                Para quienes hacen de la belleza una profesión.
             </p>
             
-            <p>Creemos firmemente que detrás de cada color, de cada corte y de cada tratamiento capilar hay mucho más que simple técnica: hay confianza depositada, hay vocación profunda y hay personas construyendo relaciones genuinas.</p>
+            <p>Creemos en quienes comienzan antes que salga el sol para abrir su salón.<br>
+            En quienes estudian cada tendencia.<br>
+            En quienes nunca dejan de capacitarse.<br>
+            En quienes saben que detrás de cada color, cada corte y cada tratamiento hay mucho más que técnica.</p>
+            
+            <p style="font-weight: 800; font-size: 1.15rem; margin: 1.5rem 0;">
+                Hay confianza. Hay vocación. Hay personas.
+            </p>
+
+            <p>Durante años caminamos junto a miles de profesionales. Aprendimos de ellos. Crecimos con ellos. Celebramos sus logros. Superamos desafíos.</p>
             
             <div class="callout-box">
-                <h4>El Corazón del Negocio</h4>
-                <p>Durante años hemos caminado junto a miles de profesionales de la belleza. Aprendimos de ellos, crecimos a la par, celebramos cada uno de sus logros y superamos grandes desafíos. Entendimos que nuestro trabajo nunca fue simplemente distribuir productos. Nuestro rol es acompañar a quienes hacen crecer esta industria día tras día. Porque cuando un profesional crece, crece toda la comunidad. El profesional es y seguirá siendo el corazón de Dos Soles.</p>
+                <h4>Nuestra Misión Real</h4>
+                <p>Y entendimos que nuestro trabajo nunca fue simplemente distribuir productos. Nuestro trabajo siempre fue acompañar a quienes hacen crecer esta industria todos los días. Porque cuando un profesional crece... Crece toda la comunidad.</p>
             </div>
 
-            <p>También sostenemos que el conocimiento merece compartirse, y que cualquier persona debería poder acceder a productos originales, a un asesoramiento de calidad y a recomendaciones honestas con resultados verdaderamente profesionales. El cuidado de tu cabello no debe depender del azar ni de comprar el producto correcto por casualidad.</p>
-            
-            <p class="lead-text" style="font-weight: 700; color: var(--text-primary); text-align: center; margin-top: 2.5rem;">
+            <p>Por eso seguiremos apostando a la capacitación. Al conocimiento. A las mejores marcas. Al asesoramiento. Y a construir relaciones de largo plazo. Porque el profesional seguirá siendo el corazón de Dos Soles.</p>
+
+            <p class="lead-text" style="color: var(--accent-solar); margin: 2.5rem 0 1.5rem 0; font-weight: 700;">
+                También creemos que el conocimiento merece compartirse.
+            </p>
+
+            <p>Que cualquier persona debería poder acceder a productos originales. A un buen asesoramiento. A recomendaciones honestas. Y a resultados profesionales. Porque cuidar el cabello no debería depender del azar. Ni de comprar el producto correcto por casualidad.</p>
+
+            <p>Creemos que una buena recomendación puede cambiar una experiencia. Que aprender genera confianza. Y que la belleza profesional puede llegar mucho más lejos cuando se comparte. Por eso abrimos nuestras puertas. Para acercar esa experiencia a cada persona que busca cuidar su cabello con la misma calidad y el mismo respaldo que encuentra un profesional.</p>
+
+            <p class="lead-text" style="font-weight: 800; color: var(--text-primary); text-align: center; margin-top: 3rem;">
                 "No elegimos entre profesionales y consumidores. Elegimos construir un puente entre ambos."
+            </p>
+
+            <p style="text-align: center; margin-top: 1rem; font-weight: 500;">
+                Los profesionales seguirán siendo el motor de nuestra historia. Los consumidores serán parte de nuestro futuro. Y nuestro compromiso será el mismo para todos: Compartir conocimiento. Generar confianza. Construir comunidad.
+            </p>
+
+            <p style="text-align: center; font-weight: 700; color: var(--accent-brand); font-size: 1.15rem; margin-top: 2rem;">
+                Porque creemos que las mejores marcas no son las que más venden. Son las que más valor generan.<br>
+                DOS SOLES
             </p>
         </section>
 
-        <!-- SECCIÓN 2: RESUMEN EJECUTIVO -->
+        <!-- 1. RESUMEN EJECUTIVO -->
         <section id="resumen" class="doc-section">
-            <span class="slide-tag">Estructura</span>
+            <span class="slide-tag">Estructura General</span>
             <h2 class="section-title" style="margin-top: 1rem;">1. Resumen Ejecutivo</h2>
             
             <h3 class="subsection-title">Objetivo General</h3>
-            <p>Diseñar e implementar una estrategia integral de marketing, comunicación y posicionamiento que permita fortalecer el liderazgo de Dos Soles en el mercado profesional (B2B) e impulsar su expansión hacia el consumidor final (B2C), construyendo una marca sólida, diferencial y totalmente orientada a la experiencia del cliente.</p>
+            <p>Diseñar e implementar una estrategia integral de marketing, comunicación y posicionamiento que permita fortalecer el liderazgo de Dos Soles en el mercado profesional (B2B) e impulsar su expansión hacia el consumidor final (B2C), construyendo una marca sólida, diferencial y orientada a la experiencia del cliente.</p>
 
             <h3 class="subsection-title">Objetivos Estratégicos</h3>
             <div class="grid-2">
                 <div class="card">
                     <h4 style="color: var(--accent-brand);">Posicionamiento</h4>
                     <ul class="styled-list">
-                        <li>Evolucionar la percepción de Dos Soles desde una distribuidora tradicional hacia una marca referente en belleza profesional.</li>
+                        <li>Evolucionar la percepción de Dos Soles desde una distribuidora hacia una marca referente en belleza profesional.</li>
                         <li>Incrementar el reconocimiento y la recordación de marca.</li>
-                        <li>Desarrollar una identidad única capaz de conectar tanto con estilistas como con consumidores finales.</li>
+                        <li>Desarrollar una identidad capaz de conectar tanto con profesionales como con consumidores finales.</li>
                     </ul>
                 </div>
                 <div class="card">
@@ -481,133 +538,200 @@
                     <ul class="styled-list">
                         <li>Incrementar las ventas del segmento B2B mediante acciones de fidelización y valor agregado.</li>
                         <li>Desarrollar un nuevo canal de crecimiento B2C sin afectar el posicionamiento profesional.</li>
-                        <li>Incrementar el ticket promedio mediante venta cruzada y bundles.</li>
+                        <li>Incrementar el ticket promedio mediante estrategias de venta cruzada, bundles y recomendaciones.</li>
+                        <li>Aumentar la frecuencia de compra.</li>
                     </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN 3: CONTEXTO DE MERCADO -->
-        <section id="contexto" class="doc-section">
-            <span class="slide-tag">Análisis del Sector</span>
-            <h2 class="section-title" style="margin-top: 1rem;">2. Contexto de Mercado & Tendencias</h2>
-            
-            <p>La industria de la belleza atraviesa un proceso de transformación acelerado. La digitalización, el crecimiento del e-commerce y el acceso masivo a la información han modificado la forma en que las personas descubren y compran productos de cuidado personal. Hoy, la experiencia de compra y la confianza se han convertido en elementos decisivos sobre el precio.</p>
-
-            <h3 class="subsection-title">Las 5 Grandes Tendencias del Sector</h3>
-            <div class="grid-3">
-                <div class="card">
-                    <h4>1. El Conocimiento vende</h4>
-                    <p>Las marcas exitosas ya no comunican únicamente promociones de productos. Comunican tutoriales, consejos, diagnósticos y comparativas. La educación genera confianza, y la confianza genera ventas.</p>
-                </div>
-                <div class="card">
-                    <h4>2. Comunidad vs. Audiencia</h4>
-                    <p>Las empresas ya no buscan seguidores pasivos; buscan construir comunidades activas que participen, comenten, recomienden y vuelvan a comprar.</p>
-                </div>
-                <div class="card">
-                    <h4>3. Diferenciación en E-commerce</h4>
-                    <p>El canal online ya no compite únicamente por precio bajo. Los clientes valoran la rapidez, el asesoramiento personalizado y las recomendaciones honestas.</p>
                 </div>
             </div>
             
             <div class="grid-2" style="margin-top: 1.5rem;">
                 <div class="card">
-                    <h4>4. Auge del Cuidado Capilar</h4>
-                    <p>El cuidado del cuero cabelludo y la salud capilar dejaron de ser temas exclusivamente técnicos de salón para convertirse en una tendencia masiva de bienestar preventivo.</p>
+                    <h4 style="color: var(--text-primary);">Marketing</h4>
+                    <ul class="styled-list">
+                        <li>Construir un ecosistema digital integrado.</li>
+                        <li>Posicionar la nueva web como principal activo comercial.</li>
+                        <li>Desarrollar una estrategia de contenidos basada en educación y autoridad.</li>
+                        <li>Implementar una estrategia SEO con IA sostenible.</li>
+                    </ul>
                 </div>
                 <div class="card">
-                    <h4>5. Soluciones Completas</h4>
-                    <p>Cada vez menos personas desean comprar productos aislados. Buscan rutinas completas, tratamientos por pasos y kits armados, favoreciendo las estrategias de bundles.</p>
+                    <h4 style="color: var(--text-secondary);">Experiencia</h4>
+                    <ul class="styled-list">
+                        <li>Transformar el showroom en una experiencia de marca.</li>
+                        <li>Convertir el Centro Técnico en una herramienta permanente de generación de contenido y autoridad.</li>
+                        <li>Construir una comunidad propia alrededor de la marca.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Visión Estratégica</h3>
+            <p>El objetivo de este proyecto no es únicamente mejorar la comunicación de Dos Soles. Tampoco consiste simplemente en desarrollar una nueva página web o aumentar la presencia en redes sociales. El propósito es construir una marca preparada para competir. Una marca capaz de integrar: distribución profesional, comercio electrónico, educación, experiencias, asesoramiento, comunidad, contenido, innovación. Todo dentro de un único ecosistema.</p>
+        </section>
+
+        <!-- 2. CONTEXTO DE MERCADO -->
+        <section id="contexto" class="doc-section">
+            <span class="slide-tag">El Mercado</span>
+            <h2 class="section-title" style="margin-top: 1rem;">2. Contexto de Mercado</h2>
+            
+            <h3 class="subsection-title">La transformación de la industria de la belleza</h3>
+            <p>La industria de la belleza atraviesa uno de los procesos de transformación más importantes de los últimos años. La digitalización, el crecimiento del comercio electrónico, la influencia de las redes sociales y el acceso masivo a la información modificaron profundamente la forma en que las personas descubren, comparan y compran productos de cuidado personal.</p>
+            <p>Hoy el consumidor llega al punto de venta con un nivel de información muy superior al de años anteriores. Investiga ingredientes, compara marcas, consulta reseñas, observa tutoriales, sigue recomendaciones de creadores de contenido y espera recibir asesoramiento especializado. Esto ha generado un cambio profundo en la dinámica competitiva del sector: el producto dejó de ser el único factor de decisión. La experiencia, la confianza y el conocimiento adquirido antes de la compra se han convertido en elementos decisivos.</p>
+
+            <h3 class="subsection-title">La nueva forma de comprar belleza</h3>
+            <p>Hace algunos años el proceso era relativamente simple. El cliente: ingresaba a una perfumería, consultaba al vendedor, elegía un producto, realizaba la compra.</p>
+            <p>Hoy el recorrido es completamente diferente. Primero descubre un producto en Instagram o TikTok. Luego busca opiniones. Consulta Google. Lee reseñas. Pregunta en WhatsApp. Compara precios. Visita la página web. Finalmente compra. En muchos casos, el vendedor ya no influye en la decisión. Influye la marca. Influye el contenido. Influye la experiencia digital.</p>
+
+            <h3 class="subsection-title">La profesionalización del consumidor</h3>
+            <p>Uno de los fenómenos más importantes de la industria es que el consumidor comenzó a demandar productos anteriormente reservados al canal profesional. Actualmente existe una fuerte tendencia hacia: tratamientos capilares profesionales, rutinas completas, productos premium, herramientas profesionales, asesoramiento especializado. El consumidor busca resultados similares a los obtenidos en un salón. Esto representa una enorme oportunidad para Dos Soles.</p>
+
+            <h3 class="subsection-title">La economía de la confianza</h3>
+            <p>El mercado dejó de competir únicamente por precio. Hoy compite por confianza. Las empresas que logran construir autoridad generan clientes más fieles, mayores niveles de recompra y una menor dependencia de promociones constantes. En este contexto, la educación se convierte en una poderosa herramienta comercial. Quien enseña primero, vende después.</p>
+        </section>
+
+        <!-- 3. TENDENCIAS DEL SECTOR -->
+        <section id="tendencias" class="doc-section">
+            <span class="slide-tag">Futuro y Tendencias</span>
+            <h2 class="section-title" style="margin-top: 1rem;">3. Tendencias del Sector</h2>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h4>Tendencia 1: El conocimiento vende más que la publicidad</h4>
+                    <p>Las marcas más exitosas del sector ya no comunican únicamente promociones. Comunican conocimiento. Tutoriales. Consejos. Errores frecuentes. Comparativas. Diagnósticos. La educación genera confianza. La confianza genera ventas.</p>
+                </div>
+                <div class="card">
+                    <h4>Tendencia 2: La comunidad reemplaza a la audiencia</h4>
+                    <p>Las empresas más exitosas ya no buscan únicamente seguidores. Buscan construir comunidades. Clientes que participan. Comentan. Comparten. Recomiendan. Vuelven a comprar. Esta es una enorme oportunidad para desarrollar el futuro Club Dos Soles.</p>
+                </div>
+            </div>
+
+            <div class="grid-3" style="margin-top: 1.5rem;">
+                <div class="card">
+                    <h4>Tendencia 3: El e-commerce no compite solo por precio</h4>
+                    <p>El diferencial ya no es vender más barato. El diferencial es ofrecer: mejor experiencia, asesoramiento, contenido, recomendaciones, rapidez, confianza.</p>
+                </div>
+                <div class="card">
+                    <h4>Tendencia 4: El auge del cuidado capilar</h4>
+                    <p>El cuidado del cuero cabelludo y la salud capilar dejaron de ser temas exclusivamente técnicos para convertirse en una tendencia de consumo masivo, impulsada por redes sociales y un enfoque más preventivo del bienestar.</p>
+                </div>
+                <div class="card">
+                    <h4>Tendencia 5: Soluciones completas</h4>
+                    <p>Cada vez menos personas desean comprar productos aislados. Buscan rutinas. Kits. Tratamientos completos. Experiencias. Esto favorece estrategias de bundles y venta cruzada.</p>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 4: BENCHMARK -->
+        <!-- 4. BENCHMARK -->
         <section id="benchmark" class="doc-section">
-            <span class="slide-tag">Competidores</span>
-            <h2 class="section-title" style="margin-top: 1rem;">3. Benchmark Estratégico</h2>
+            <span class="slide-tag">Análisis Comparativo</span>
+            <h2 class="section-title" style="margin-top: 1rem;">4. Benchmark Estratégico</h2>
             
-            <p>Al analizar los referentes nacionales e internacionales se observa que las marcas líderes no venden productos aislados; construyen marcas, experiencias y comunidades sólidas.</p>
+            <p>Al analizar referentes nacionales e internacionales se observa un patrón común. Las empresas más exitosas no venden productos. Construyen marcas. Construyen experiencias. Construyen comunidad. No hablan únicamente de productos. Hablan de transformación. Hablan de resultados. Hablan de estilo de vida.</p>
 
             <table class="styled-table">
                 <thead>
                     <tr>
                         <th>Referente</th>
-                        <th>Estrategia Observada</th>
-                        <th>Aprendizaje Clave</th>
+                        <th>Análisis Observado</th>
+                        <th>Aprendizaje Aplicable</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><strong>Sally Beauty</strong></td>
-                        <td>Comunica soluciones directas y organiza el contenido según necesidades del consumidor.</td>
+                        <td>No comunica únicamente productos. Comunica soluciones. Organiza el contenido según necesidades del consumidor.</td>
                         <td>Ordenar la comunicación desde los problemas del cliente y no desde el catálogo.</td>
                     </tr>
                     <tr>
                         <td><strong>Get The Look</strong></td>
-                        <td>Integra inspiración, educación y compra directa en un solo lugar.</td>
-                        <td>Cada contenido educativo debe ser una oportunidad de conversión comercial.</td>
+                        <td>Convierte el contenido en una herramienta comercial. Integra inspiración, educación y compra.</td>
+                        <td>Cada contenido puede transformarse en una oportunidad de conversión.</td>
                     </tr>
                     <tr>
                         <td><strong>L'Oréal Professionnel</strong></td>
-                        <td>Vende tendencias, moda y educación antes de empujar la venta de tinturas.</td>
-                        <td>Construir autoridad sólida antes de vender el producto final.</td>
+                        <td>No vende tinturas. Vende tendencias. Moda. Educación. Experiencias.</td>
+                        <td>Construir autoridad antes de vender.</td>
                     </tr>
                     <tr>
                         <td><strong>Juleriaque</strong></td>
-                        <td>La experiencia de compra se cuida al mismo nivel que la calidad del producto.</td>
-                        <td>La nueva web debe transmitir una experiencia de marca sumamente superior.</td>
+                        <td>La experiencia de compra es tan importante como el producto.</td>
+                        <td>La nueva web deben transmitir una experiencia de marca superior.</td>
                     </tr>
                 </tbody>
             </table>
+
+            <h3 class="subsection-title">Conclusión del Benchmark</h3>
+            <p>Las marcas líderes comparten cinco características: construyen comunidad; educan constantemente; generan experiencias; venden soluciones antes que productos; posicionan su propia marca por encima de las marcas que comercializan.</p>
+            <p>Este último punto es especialmente relevante para Dos Soles. Hoy gran parte de la comunicación está centrada en las marcas del portafolio. La estrategia propone que el protagonista pase a ser Dos Soles como experto, asesor y referente. Las marcas seguirán siendo fundamentales, pero actuarán como respaldo de una propuesta de valor propia y diferenciada.</p>
         </section>
 
-        <!-- SECCIÓN 5: DIAGNÓSTICO -->
+        <!-- 5. DIAGNÓSTICO DE MARCA -->
         <section id="diagnostico" class="doc-section">
-            <span class="slide-tag">Estado Actual</span>
-            <h2 class="section-title" style="margin-top: 1rem;">4. Diagnóstico de Dos Soles</h2>
+            <span class="slide-tag">Diagnóstico</span>
+            <h2 class="section-title" style="margin-top: 1rem;">5. Diagnóstico Estratégico de Dos Soles</h2>
             
-            <p>Dos Soles es una empresa sólida con un negocio B2B establecido, excelente reputación y activos únicos. Sin embargo, existe una brecha notable entre lo que la empresa es y lo que el mercado percibe.</p>
+            <h3 class="subsection-title">Situación Actual</h3>
+            <p>Dos Soles es una empresa que ha construido un negocio sólido dentro del canal profesional. Su trayectoria, el respaldo de marcas internacionales, el desarrollo de un centro técnico, un showroom, un ecommerce y un equipo con conocimiento especializado representan activos extremadamente valiosos que muchas empresas aún intentan desarrollar.</p>
+            <p>Sin embargo, durante el análisis realizado se observa una situación muy frecuente en empresas que crecieron desde la distribución: **La empresa es mucho más fuerte de lo que su comunicación transmite.** Existe una diferencia importante entre: **Lo que Dos Soles ES** y **Lo que el mercado PERCIBE**.</p>
 
             <div class="grid-2">
                 <div class="card">
-                    <h3>¿Qué es hoy Dos Soles?</h3>
-                    <p>Distribuidor oficial de marcas líderes, especialista en cosmética capilar con Centro Técnico, showroom interactivo y un equipo técnico con conocimiento muy especializado.</p>
+                    <h4>¿Qué es hoy Dos Soles?</h4>
+                    <p>Es: Distribuidor oficial de marcas líderes, Especialista en cosmética capilar, Centro de capacitación, Ecommerce, Showroom, Equipo técnico, Asesor especializado, Espacio de formación profesional, Punto de encuentro para estilistas.</p>
                 </div>
-                <div class="card" style="border-left: 5px solid var(--accent-brand);">
-                    <h3>¿Cómo se comunica?</h3>
-                    <p>Principalmente como "una distribuidora". La comunicación actual resume toda la empresa en una sola función logística de distribución, dejando invisibles sus diferenciales.</p>
+                <div class="card">
+                    <h4>¿Cómo se comunica?</h4>
+                    <p>Principalmente como: "Una distribuidora." Y ahí aparece el principal problema estratégico. La comunicación resume toda la empresa en una sola función. Distribuir. Cuando en realidad hoy la empresa hace muchísimo más.</p>
                 </div>
             </div>
 
-            <div class="callout-box" style="border-left-color: var(--accent-solar);">
-                <h4>El Riesgo de la Subcapitalización</h4>
-                <p>Gran parte del valor que percibe el cliente final se construye sobre marcas de terceros (Matrix, Truss, L'Oréal). Como cualquier distribuidor puede vender las mismas marcas, la ventaja competitiva real no puede basarse únicamente en el catálogo, sino en la <strong>experiencia y el valor agregado propio de Dos Soles</strong>.</p>
+            <div class="callout-box">
+                <h4>La oportunidad</h4>
+                <p>El desafío no consiste en modificar el negocio. Consiste en modificar la percepción. Porque el mercado ya no compra solamente productos. Compra confianza. Compra experiencia. Compra conocimiento. Compra tranquilidad.</p>
             </div>
+
+            <h3 class="subsection-title">La marca está subcapitalizada</h3>
+            <p>Hoy las marcas protagonistas son: L'Oréal Professionnel, Matrix, Truss, Liss Expert, Wahl, Taiff. Dos Soles aparece como el intermediario. No como el protagonista. Eso significa que gran parte del valor percibido está construido sobre marcas de terceros. Y eso representa un riesgo. Porque cualquier otro distribuidor puede vender exactamente las mismas marcas. La ventaja competitiva entonces no puede ser únicamente el portfolio. Debe ser la experiencia que ofrece Dos Soles.</p>
+
+            <h3 class="subsection-title">Diagnóstico de Comunicación (5 Atributos Predominantes)</h3>
+            <ul class="styled-list">
+                <li><strong>Comunicación orientada al producto:</strong> Gran parte del contenido presenta productos, promociones y lanzamientos. Esto resulta útil para clientes que ya conocen las marcas, pero genera poca atracción para nuevos consumidores.</li>
+                <li><strong>Poco contenido educativo:</strong> La empresa posee muchísimo conocimiento. Sin embargo comunica relativamente poco de ese conocimiento. Existe una enorme oportunidad de posicionarse como referente.</li>
+                <li><strong>Excelente autoridad desaprovechada:</strong> El Centro Técnico constituye uno de los mayores diferenciales competitivos. Sin embargo todavía no ocupa un lugar central dentro del ecosistema de comunicación. Debería convertirse en uno de los principales generadores de contenido.</li>
+                <li><strong>Gran confianza:</strong> El negocio transmite cercanía, atención personalizada y profesionalismo. Eso constituye un activo enorme que debe comunicarse mucho más.</li>
+                <li><strong>Falta construcción de marca:</strong> Hoy gran parte del contenido comunica productos. La propuesta consiste en comenzar a comunicar identidad, para que las personas recuerden Dos Soles incluso cuando no estén buscando comprar.</li>
+            </ul>
         </section>
 
-        <!-- SECCIÓN 6: MATRIZ FODA -->
+        <!-- 6. MATRIZ FODA -->
         <section id="foda" class="doc-section">
-            <span class="slide-tag">Matriz FODA</span>
-            <h2 class="section-title" style="margin-top: 1rem;">5. Análisis FODA</h2>
+            <span class="slide-tag">FODA</span>
+            <h2 class="section-title" style="margin-top: 1rem;">6. Matriz FODA</h2>
             
             <div class="swot-grid">
                 <div class="swot-card fortalezas">
                     <h3>Fortalezas</h3>
                     <ul class="styled-list">
-                        <li>19 años de trayectoria en el sector.</li>
+                        <li>19 años de trayectoria en el mercado.</li>
                         <li>Excelente reputación en el canal profesional.</li>
-                        <li>Centro Técnico propio y capacitaciones activas.</li>
-                        <li>Distribuidor oficial de primeras marcas capilares.</li>
+                        <li>Distribuidor oficial de primeras marcas.</li>
+                        <li>Amplio catálogo de productos profesionales.</li>
+                        <li>Ecommerce propio y en expansión.</li>
+                        <li>Centro Técnico y capacitaciones permanentes.</li>
+                        <li>Showroom de atención interactiva.</li>
+                        <li>Equipo de asesores y técnicos altamente especializados.</li>
+                        <li>Atención personalizada de cercanía.</li>
+                        <li>Alcance nacional mediante envíos seguros.</li>
                     </ul>
                 </div>
                 <div class="swot-card debilidades">
                     <h3>Debilidades</h3>
                     <ul class="styled-list">
-                        <li>Marca institucional menos fuerte que las marcas del catálogo.</li>
-                        <li>Comunicación muy centrada en promociones de productos.</li>
-                        <li>Escasa comunicación emocional y de identidad.</li>
-                        <li>Baja construcción de comunidad orgánica.</li>
+                        <li>Marca institucional menos fuerte que las marcas comercializadas del catálogo.</li>
+                        <li>Comunicación muy centrada en el catálogo físico y de productos.</li>
+                        <li>Baja diferenciación directa frente a otros distribuidores competidores.</li>
+                        <li>Escasa comunicación de marca e identidad emocional.</li>
+                        <li>Poco contenido digital de tipo evergreen.</li>
+                        <li>Baja construcción de comunidad orgánica en canales directos.</li>
                     </ul>
                 </div>
             </div>
@@ -616,112 +740,318 @@
                 <div class="swot-card oportunidades">
                     <h3>Oportunidades</h3>
                     <ul class="styled-list">
-                        <li>Crecimiento del consumo de cosmética profesional en hogares.</li>
-                        <li>Creación de canales propios de educación y contenidos.</li>
-                        <li>Desarrollo del ecommerce con foco en autodiagnóstico.</li>
-                        <li>Lanzamiento del Club Dos Soles y programas de fidelidad.</li>
+                        <li>Crecimiento acelerado del consumo de cosmética profesional en casa.</li>
+                        <li>Consumidores de belleza cada vez más informados y exigentes.</li>
+                        <li>Desarrollo integral del canal de e-commerce.</li>
+                        <li>Crecimiento de la demanda de contenido educativo sobre cuidado capilar.</li>
+                        <li>SEO apoyado con Inteligencia Artificial para búsquedas de valor.</li>
+                        <li>Automatización de procesos de marketing.</li>
+                        <li>Programas de fidelización cerrados y canales propios (WhatsApp/Instagram).</li>
+                        <li>Eventos interactivos y marketing de experiencia.</li>
+                        <li>Alianzas con influencers y embajadores locales.</li>
                     </ul>
                 </div>
                 <div class="swot-card amenazas">
                     <h3>Amenazas</h3>
                     <ul class="styled-list">
-                        <li>Competencia agresiva por precio en marketplaces masivos.</li>
-                        <li>Dependencia absoluta de las políticas de marcas internacionales.</li>
-                        <li>Saturación publicitaria en canales tradicionales.</li>
-                        <li>Incremento constante en el costo de adquisición de clientes.</li>
+                        <li>Presencia de grandes marketplaces (Mercado Libre) y competencia agresiva por precio.</li>
+                        <li>Aparición de distribuidores multimarca informales.</li>
+                        <li>Cambios e inestabilidad económica.</li>
+                        <li>Dependencia absoluta de las políticas y stock de marcas internacionales.</li>
+                        <li>Saturación publicitaria en las redes sociales.</li>
+                        <li>Aumento progresivo del costo de adquisición de clientes (CAC).</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- SECCIÓN 7: CUSTOMER PERSONAS -->
-        <section id="personas" class="doc-section">
-            <span class="slide-tag">Clientes</span>
-            <h2 class="section-title" style="margin-top: 1rem;">6. Insights del Consumidor</h2>
+        <!-- 7. ANÁLISIS COMPETITIVO -->
+        <section id="analisis-competitivo" class="doc-section">
+            <span class="slide-tag">Competidores</span>
+            <h2 class="section-title" style="margin-top: 1rem;">7. Análisis Competitivo</h2>
             
-            <p>La base del reposicionamiento es entender que las personas no buscan simplemente comprar un shampoo profesional; buscan **sentirse acompañadas para lograr un mejor resultado** en su cabello.</p>
+            <p>Hoy el mercado se divide en cuatro grandes grupos competitivos:</p>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>Grupo 1: Distribuidores tradicionales</h4>
+                    <p>Compiten principalmente por variables transaccionales básicas: **precio, stock y marcas**.</p>
+                </div>
+                <div class="card">
+                    <h4>Grupo 2: Ecommerce</h4>
+                    <p>Compiten principalmente por atributos logísticos y comerciales rápidos: **rapidez, comodidad y promociones**.</p>
+                </div>
+            </div>
 
-            <div class="grid-3">
+            <div class="grid-2" style="margin-top: 1.5rem;">
                 <div class="card">
-                    <span class="slide-tag" style="font-size: 0.7rem; margin-bottom: 0.5rem;">Carolina (33) • B2C</span>
-                    <h3>La Buscadora</h3>
-                    <p>Compra de forma online y sigue influencers. Quiere cuidar su cabello pero no entiende la diferencia técnica entre marcas. Necesita recomendaciones honestas y sencillas.</p>
+                    <h4>Grupo 3: Perfumerías</h4>
+                    <p>Compiten principalmente por conveniencia de canal físico: **ubicación física, experiencia de compra presencial y variedad de catálogo**.</p>
                 </div>
                 <div class="card">
-                    <span class="slide-tag" style="font-size: 0.7rem; margin-bottom: 0.5rem;">Mariana (42) • B2C</span>
-                    <h3>La Exigente</h3>
-                    <p>Va con regularidad al salón. Desea replicar y mantener ese mismo resultado profesional en su casa. Está dispuesta a pagar más si se le asegura calidad y resultados reales.</p>
+                    <h4>Grupo 4: Marcas oficiales</h4>
+                    <p>Compiten a nivel estratégico construyendo la lealtad directa: **branding, autoridad e infraestructura de comunidad**.</p>
                 </div>
-                <div class="card">
-                    <span class="slide-tag" style="font-size: 0.7rem; margin-bottom: 0.5rem;">Nicolás • B2B</span>
-                    <h3>El Estilista</h3>
-                    <p>Peluquero profesional. Sus prioridades son el stock constante de tinturas, la atención rápida, el soporte técnico directo y capacitaciones para su personal.</p>
-                </div>
+            </div>
+
+            <div class="callout-box" style="border-left-color: var(--accent-solar);">
+                <h4>¿Dónde debería competir Dos Soles?</h4>
+                <p>En ninguno de esos grupos de forma aislada. Dos Soles debe crear una **nueva categoría**: **Especialistas en Belleza Profesional**. No ser solamente un distribuidor, ni solamente un ecommerce, ni solamente una academia. Debe ser la suma e integración de todo en un único ecosistema.</p>
             </div>
         </section>
 
-        <!-- SECCIÓN 8: ECOSISTEMA DOS SOLES -->
-        <section id="ecosistema" class="doc-section">
-            <span class="slide-tag">Estructura</span>
-            <h2 class="section-title" style="margin-top: 1rem;">7. El Ecosistema Dos Soles</h2>
-            
-            <p>Esta es la idea central de la consultoría. Dos Soles debe dejar de ser visto como un intermediario logístico y pasar a ser un **ecosistema de belleza profesional** donde todos los activos colaboren entre sí de forma orgánica.</p>
-
-            <div class="card" style="margin: 2rem 0; background: var(--accent-soft); border-color: var(--accent-brand);">
-                <h3 style="margin-top: 0; color: var(--accent-brand);">La Sinergia del Ecosistema</h3>
-                <p>El blog educativo atrae tráfico calificado de Google → Los artículos derivan visitas al ecommerce → El ecommerce invita al usuario a unirse al **Club Dos Soles** → La comunidad interactúa mediante el Canal de WhatsApp y redes sociales → El Centro Técnico provee contenidos e invita a eventos presenciales en el showroom → Se genera comunidad que recomienda de boca en boca, impulsando nuevas ventas orgánicas.</p>
-            </div>
-        </section>
-
-        <!-- SECCIÓN 9: ESTRATEGIA DIGITAL -->
-        <section id="digital" class="doc-section">
-            <span class="slide-tag">Digital</span>
-            <h2 class="section-title" style="margin-top: 1rem;">8. Estrategia Digital & Contenidos</h2>
+        <!-- 8. INSIGHTS DEL CONSUMIDOR -->
+        <section id="insights" class="doc-section">
+            <span class="slide-tag">Comportamiento</span>
+            <h2 class="section-title" style="margin-top: 1rem;">8. Insights del Consumidor</h2>
             
             <div class="grid-2">
                 <div class="card">
-                    <h3>Plataforma Web Centrada en Soluciones</h3>
-                    <p>La nueva web no será un simple listado de productos. Estará organizada por necesidades de cabello (Frizz, Decoloración, Daño) guiando al usuario hacia rutinas recomendadas y kits completos de compra.</p>
+                    <h4>El Cliente Profesional (B2B)</h4>
+                    <p><strong>¿Qué busca?</strong> Confianza, rapidez, stock garantizado, disponibilidad inmediata, respaldo y criterio técnico, formación continua, marcas del portafolio, acompañamiento.</p>
+                    <p style="margin-top: 1rem;"><strong>¿Qué le preocupa?</strong> Quedarse sin productos para sus clientes, comprar productos falsificados que dañen su reputación, perder clientes de salón, no conocer las nuevas tendencias.</p>
+                    <p style="margin-top: 1rem;"><strong>¿Qué valora?</strong> Que alguien lo ayude a crecer y desarrolle su negocio. No solamente que le venda.</p>
                 </div>
                 <div class="card">
-                    <h3>WhatsApp de Venta Consultiva</h3>
-                    <p>WhatsApp dejará de ser una herramienta de soporte básico. Actuará como un canal de diagnóstico personalizado, recomendando rutinas específicas basadas en fotos o consultas directas.</p>
+                    <h4>El Cliente de Consumo Final (B2C)</h4>
+                    <p><strong>¿Qué busca?</strong> No busca comprar shampoo. Busca solucionar un problema específico de su cabello: controlar frizz, reparar daño, mantener el color, tener brillo, fortalecer y recuperar su salud capilar. Compra resultados, no ingredientes.</p>
+                    <p style="margin-top: 1rem;"><strong>¿Qué le genera miedo?</strong> Comprar un producto incorrecto que no sirva para su tipo de cabello, no saber usarlo, gastar dinero de forma en vano, no notar resultados visibles.</p>
+                    <p style="margin-top: 1rem;"><strong>¿Qué necesita?</strong> Alguien con autoridad técnica que le asesore y le asegure: *"Este producto es para vos"*. Eso tiene un valor de confianza único.</p>
                 </div>
             </div>
 
-            <h3 class="subsection-title">Distribución de Contenidos en Redes</h3>
-            <p>Proponemos que los contenidos de la marca dejen de actuar solo como soporte de ventas y pasen a generar la venta de forma nativa a través de la educación y el valor:</p>
+            <p class="lead-text" style="text-align: center; color: var(--accent-brand); margin-top: 2rem;">
+                "El Nuevo Insight: Las personas no buscan productos profesionales. Buscan sentirse acompañadas para lograr un mejor resultado."
+            </p>
+        </section>
+
+        <!-- 9. CUSTOMER PERSONAS -->
+        <section id="personas" class="doc-section">
+            <span class="slide-tag">Perfiles de Clientes</span>
+            <h2 class="section-title" style="margin-top: 1rem;">9. Customer Personas</h2>
+            
+            <div class="grid-3">
+                <div class="card">
+                    <span class="slide-tag" style="margin-bottom: 0.5rem; font-size: 0.7rem;">Persona 1: B2C</span>
+                    <h3>Carolina</h3>
+                    <p>33 años. Trabaja, tiene hijos. Realiza compras online y sigue a creadores de contenido de belleza en Instagram o TikTok. Quiere cuidar su cabello pero no entiende las diferencias técnicas entre marcas. Necesita recomendaciones de rutinas fáciles de entender.</p>
+                </div>
+                <div class="card">
+                    <span class="slide-tag" style="margin-bottom: 0.5rem; font-size: 0.7rem;">Persona 2: B2C</span>
+                    <h3>Mariana</h3>
+                    <p>42 años. Va regularmente a la peluquería de su barrio. Quiere mantener el resultado del salón en su casa y está dispuesta a pagar más por productos premium. Busca calidad, exclusividad y resultados visibles en el corto plazo.</p>
+                </div>
+                <div class="card">
+                    <span class="slide-tag" style="margin-bottom: 0.5rem; font-size: 0.7rem;">Persona 3: B2B</span>
+                    <h3>Nicolás</h3>
+                    <p>Peluquero y estilista profesional con salón propio. Necesita stock garantizado de tinturas y tratamientos, capacitaciones permanentes de técnicas nuevas para sus empleados, innovación constante, atención rápida y soporte técnico.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. CUSTOMER JOURNEY -->
+        <section id="journey" class="doc-section">
+            <span class="slide-tag">El Recorrido</span>
+            <h2 class="section-title" style="margin-top: 1rem;">10. Customer Journey</h2>
+            
+            <div class="card" style="margin-bottom: 2rem;">
+                <h4 style="color: var(--accent-brand);">Etapa 1: Descubrimiento</h4>
+                <p>El cliente detecta una necesidad. Ejemplo: *"Tengo el cabello dañado"*. Oportunidad: Contenido educativo en Instagram, TikTok, posicionamiento SEO, artículos informativos en el Blog y búsquedas orgánicas en Google.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h4 style="color: var(--accent-brand);">Etapa 2: Investigación</h4>
+                <p>Comienza a comparar. Busca, pregunta y lee reseñas de otras usuarias. Oportunidad: Ficha de Google Business optimizada, artículos del blog detallados, videos de demostración y respuesta rápida por WhatsApp.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h4 style="color: var(--accent-brand);">Etapa 3: Evaluación</h4>
+                <p>Compara alternativas. Busca en Mercado Libre, consulta en perfumerías locales y otros distribuidores o plataformas e-commerce. Oportunidad: Explicar claramente el diferencial de comprar en Dos Soles (asesoramiento experto, productos originales garantizados, atención personalizada y respaldo técnico).</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h4 style="color: var(--accent-brand);">Etapa 4: Compra</h4>
+                <p>Elige y compra el producto. Oportunidad: Ofrecer estrategias de Cross Selling, bundles de tratamientos, rutinas de cuidado completas en formato Kit, envíos rápidos y un proceso de checkout simple en la web.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h4 style="color: var(--accent-brand);">Etapa 5: Uso</h4>
+                <p>Comienza a utilizar el producto. Oportunidad: Soporte post-venta automático por Email y WhatsApp, tutoriales de uso, consejos adicionales sobre la marcha y seguimiento de resultados.</p>
+            </div>
+
+            <div class="card" style="margin-bottom: 2rem;">
+                <h4 style="color: var(--accent-brand);">Etapa 6: Recompra</h4>
+                <p>Si obtuvo los resultados que esperaba, el cliente vuelve a comprar. Oportunidad: Automatizaciones de email marketing, programas de puntos de fidelidad, acceso preferente al Club Dos Soles y beneficios exclusivos.</p>
+            </div>
+
+            <div class="card">
+                <h4 style="color: var(--accent-brand);">Etapa 7: Recomendación</h4>
+                <p>Comparte la experiencia, publica en redes, recomienda de boca en boca y deja reseñas. Oportunidad: Solicitar reseñas de forma proactiva, generar contenido creado por los usuarios (UGC) y lanzar programas de referidos.</p>
+            </div>
+        </section>
+
+        <!-- 11. EVOLUCIÓN DE MARCA -->
+        <section id="estrategia" class="doc-section">
+            <span class="slide-tag">Estrategia</span>
+            <h2 class="section-title" style="margin-top: 1rem;">11. Evolución de Marca</h2>
+            
+            <p>La estrategia propone una evolución de la marca desde un modelo centrado únicamente en la distribución comercial hacia una propuesta donde Dos Soles actúe como un referente, experto, asesor y educador técnico.</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h4>La Nueva Definición</h4>
+                    <p>La marca deja de definirse únicamente por lo que vende. Comienza a definirse por el valor de confianza y educación que genera.</p>
+                    <p style="font-weight: 700; margin-top: 1rem; color: var(--accent-brand);">
+                        "Dos Soles es el lugar donde profesionales y consumidores encuentran conocimiento, asesoramiento, productos y experiencias para el cuidado profesional del cabello."
+                    </p>
+                </div>
+                <div class="card">
+                    <h4>El Propósito de Marca</h4>
+                    <p>Definimos el por qué existe la marca de la siguiente manera:</p>
+                    <p style="font-weight: 700; margin-top: 1rem; color: var(--accent-solar);">
+                        "Democratizar el acceso a la belleza profesional. Acercando productos, conocimiento y asesoramiento especializado para que cualquier persona pueda alcanzar resultados profesionales, tanto en el salón como en su hogar."
+                    </p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Evolución del Posicionamiento</h3>
             <table class="styled-table">
                 <thead>
                     <tr>
-                        <th>Pilar</th>
-                        <th>Porcentaje</th>
-                        <th>Temáticas Clave</th>
+                        <th>Eje</th>
+                        <th>Posicionamiento Actual</th>
+                        <th>Posicionamiento Futuro (Evolución)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Educación</strong></td>
-                        <td>40%</td>
-                        <td>Tutoriales de rutinas, errores comunes, diagnósticos caseros, paso a paso de productos.</td>
+                        <td><strong>Definición</strong></td>
+                        <td>Distribuidor de productos profesionales.</td>
+                        <td>Especialistas en belleza profesional.</td>
                     </tr>
                     <tr>
-                        <td><strong>Inspiración</strong></td>
-                        <td>20%</td>
-                        <td>Resultados del "antes y después", tendencias de color, peinados y estilos modernos.</td>
+                        <td><strong>Enfoque</strong></td>
+                        <td>Venta de productos en base a marcas.</td>
+                        <td>Asesoramiento y educación centrada en el cliente.</td>
                     </tr>
                     <tr>
-                        <td><strong>Autoridad</strong></td>
-                        <td>20%</td>
-                        <td>Cobertura de capacitaciones presenciales, backstage de eventos y certificaciones.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Comercial</strong></td>
-                        <td>20%</td>
-                        <td>Lanzamientos exclusivos de productos, promociones de kits armados y combos especiales.</td>
+                        <td><strong>Territorio</strong></td>
+                        <td>Logístico / Intermediario de stock.</td>
+                        <td>Conocimiento, Experiencia, Confianza y Cuidado.</td>
                     </tr>
                 </tbody>
             </table>
+        </section>
+
+        <!-- 12. MISIÓN, VISIÓN, VALORES -->
+        <section id="identidad" class="doc-section">
+            <span class="slide-tag">Identidad</span>
+            <h2 class="section-title" style="margin-top: 1rem;">12. Misión, Visión, Valores</h2>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Misión</h3>
+                    <p>Brindar soluciones integrales para el cuidado profesional del cabello, ofreciendo productos originales, asesoramiento especializado, capacitación permanente y una experiencia de compra que genere confianza y relaciones duraderas con cada cliente.</p>
+                </div>
+                <div class="card">
+                    <h3>Visión</h3>
+                    <p>Convertir a Dos Soles en la marca referente de belleza profesional de Rosario y a nivel país, reconocida por integrar conocimiento, innovación, asesoramiento y experiencias que impulsen el crecimiento de profesionales y mejoren la experiencia de los consumidores.</p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Valores Corporativos</h3>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>Confianza</h4>
+                    <p>Cada recomendación debe estar basada en la necesidad real del cliente y no únicamente en el objetivo comercial de la venta.</p>
+                </div>
+                <div class="card">
+                    <h4>Profesionalismo</h4>
+                    <p>La experiencia técnica y el conocimiento especializado constituyen el principal diferencial y el valor de nuestra marca.</p>
+                </div>
+                <div class="card">
+                    <h4>Cercanía</h4>
+                    <p>Cada una de nuestras interacciones debe sentirse humana, empática, personalizada y totalmente auténtica.</p>
+                </div>
+            </div>
+            
+            <div class="grid-3" style="margin-top: 1.5rem;">
+                <div class="card">
+                    <h4>Educación</h4>
+                    <p>Enseñar y compartir el conocimiento es nuestra forma de generar valor diferencial antes de empujar la venta.</p>
+                </div>
+                <div class="card">
+                    <h4>Innovación</h4>
+                    <p>Mantenerse actualizados con las tendencias y tecnologías del cuidado capilar para acercar las mejores soluciones del mercado.</p>
+                </div>
+                <div class="card">
+                    <h4>Comunidad</h4>
+                    <p>Construir relaciones duraderas y de mutua confianza a largo plazo tanto con profesionales como con consumidores.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. ECOSISTEMA DOS SOLES -->
+        <section id="ecosistema" class="doc-section">
+            <span class="slide-tag">Estructura Estratégica</span>
+            <h2 class="section-title" style="margin-top: 1rem;">13. El Ecosistema Dos Soles</h2>
+            
+            <p>La propuesta principal del plan es integrar todos los activos bajo un mismo ecosistema coherente. En este modelo de negocio, cada punto de contacto fortalece a los demás de forma orgánica:</p>
+
+            <div class="callout-box" style="background-color: var(--bg-card); border-left-color: var(--accent-solar);">
+                <h4>El Flujo de Sinergia Orgánica</h4>
+                <p>La nueva web deriva tráfico al blog → El blog posiciona en Google a través de SEO → Google lleva nuevos usuarios al ecommerce → El ecommerce invita al usuario a unirse al **Club Dos Soles** → El Club comunica novedades mediante canales directos de WhatsApp e Instagram → El Centro Técnico provee contenidos educativos → El contenido alimenta las redes sociales → Las redes impulsan eventos y capacitaciones → Los eventos generan comunidad activa → La comunidad genera recomendaciones de boca en boca → Las recomendaciones generan nuevas ventas directas.</p>
+            </div>
+
+            <p>De esta manera, el crecimiento comercial de la empresa deja de depender exclusivamente de campañas publicitarias pagas de conversión directa y comienza a apoyarse en activos de marca propios que aumentan su valor de forma acumulativa con el tiempo.</p>
+        </section>
+
+        <!-- 14. ESTRATEGIA DIGITAL -->
+        <section id="digital" class="doc-section">
+            <span class="slide-tag">Marketing Digital</span>
+            <h2 class="section-title" style="margin-top: 1rem;">14. Estrategia Digital</h2>
+            
+            <p>El ecosistema digital es la herramienta principal para que el alcance comercial de la marca deje de estar condicionado únicamente por su ubicación física en Rosario y se expanda a nivel nacional.</p>
+
+            <h3 class="subsection-title">Nueva Plataforma Web</h3>
+            <p>La nueva web será concebida como el principal activo digital de la empresa. No será únicamente un carrito de compras tradicional, sino una plataforma interactiva de asesoramiento, educación y conversión. La navegación responderá a las necesidades del usuario, guiándolo a través de diagnósticos personalizados hacia tratamientos y rutinas completas.</p>
+
+            <h3 class="subsection-title">Distribución Sugerida de Contenidos para Redes</h3>
+            <p>Para construir marca y generar ventas de forma orgánica, se propone una regla estricta para la distribución de contenidos digitales:</p>
+            
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Pilar de Contenido</th>
+                        <th>Porcentaje</th>
+                        <th>Descripción y Ejemplos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>40% Educación</strong></td>
+                        <td>Prioritario</td>
+                        <td>Consejos de cuidado capilar, tutoriales de productos, diagnóstico de errores frecuentes, rutinas y "antes y después".</td>
+                    </tr>
+                    <tr>
+                        <td><strong>20% Inspiración</strong></td>
+                        <td>Medio</td>
+                        <td>Transformaciones de cabello reales, historias de estilistas, tendencias estéticas y nuevos looks.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>20% Autoridad</strong></td>
+                        <td>Medio</td>
+                        <td>Eventos del sector, backstage de capacitaciones en el Centro Técnico y validación de marcas.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>20% Comercial</strong></td>
+                        <td>Bajo</td>
+                        <td>Promociones específicas, combos de productos, lanzamientos exclusivos y beneficios comerciales.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 class="subsection-title">WhatsApp de Venta Consultiva</h3>
+            <p>WhatsApp es uno de los mayores diferenciales competitivos de Dos Soles. No debe limitarse a responder dudas logísticas sobre envíos o precios; debe actuar de forma activa como un asesor profesional que recomienda rutinas ideales según el tipo de cabello del cliente, transformando la experiencia transaccional en una de asesoramiento especializado.</p>
         </section>
 
     </main>
@@ -737,7 +1067,7 @@
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - 120)) {
+                if (pageYOffset >= (sectionTop - 150)) {
                     current = section.getAttribute('id');
                 }
             });
