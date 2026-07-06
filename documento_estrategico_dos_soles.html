@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Estratégico - Dos Soles Distribuidora</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===========================================
+           CSS VARIABLES & BRANDING DEFINITIONS
+           =========================================== */
+        :root {
+            --bg-primary: #FAF9F6;
+            --bg-sidebar: #FFFFFF;
+            --bg-card: #FFFFFF;
+            --text-primary: #121212;
+            --text-secondary: #5C5A56;
+            --accent-brand: #A7144C;
+            --accent-solar: #E08A22;
+            --accent-soft: rgba(167, 20, 76, 0.05);
+            --accent-soft-solar: rgba(224, 138, 34, 0.05);
+            --border-color: rgba(0, 0, 0, 0.06);
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --sidebar-width: 280px;
+            --transition-speed: 0.3s;
+        }
+
+        /* Basic Resets */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ===========================================
+           SIDEBAR NAVIGATION (DESKTOP)
+           =========================================== */
+        aside.sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem 1.5rem;
+            overflow-y: auto;
+        }
+
+        .sidebar-brand {
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-brand h1 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent-brand);
+            letter-spacing: -0.02em;
+        }
+
+        .sidebar-brand span {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .sidebar-menu li a {
+            display: block;
+            padding: 0.8rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .sidebar-menu li a:hover,
+        .sidebar-menu li.active a {
+            background-color: var(--accent-soft);
+            color: var(--accent-brand);
+        }
+
+        /* ===========================================
+           MAIN CONTENT AREA
+           =========================================== */
+        main.main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 4rem clamp(1.5rem, 5vw, 5rem);
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        section.doc-section {
+            margin-bottom: 6rem;
+            padding-top: 2rem;
+        }
+
+        /* Typography */
+        h2.section-title {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 800;
+            color: var(--accent-brand);
+            margin-bottom: 2rem;
+            letter-spacing: -0.03em;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2.section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 5px;
+            background: var(--accent-brand);
+            border-radius: 3px;
+        }
+
+        h3.subsection-title {
+            font-size: clamp(1.2rem, 2vw, 1.6rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .lead-text {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* Highlight Boxes / Callouts */
+        .callout-box {
+            background-color: var(--accent-soft);
+            border-left: 4px solid var(--accent-brand);
+            padding: 1.5rem 2rem;
+            border-radius: 0 16px 16px 0;
+            margin: 2rem 0;
+        }
+
+        .callout-box h4 {
+            color: var(--accent-brand);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .callout-box p {
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+
+        /* Grid layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.01);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(167, 20, 76, 0.05);
+        }
+
+        .card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+        }
+
+        /* Styled Lists */
+        ul.styled-list {
+            list-style: none;
+            margin: 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        ul.styled-list li {
+            position: relative;
+            padding-left: 2rem;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        ul.styled-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--accent-brand);
+        }
+
+        /* Table design */
+        table.styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        table.styled-table th {
+            background-color: var(--accent-soft);
+            color: var(--accent-brand);
+            text-align: left;
+            padding: 1.2rem 1.5rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        table.styled-table td {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        table.styled-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* ===========================================
+           SWOT MATRIX CUSTOM DESIGN
+           =========================================== */
+        .swot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .swot-card {
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .swot-card.fortalezas {
+            background-color: rgba(39, 174, 96, 0.04);
+            border-left: 5px solid #27ae60;
+        }
+
+        .swot-card.fortalezas h3 { color: #27ae60; }
+
+        .swot-card.debilidades {
+            background-color: rgba(192, 57, 43, 0.04);
+            border-left: 5px solid #c0392b;
+        }
+
+        .swot-card.debilidades h3 { color: #c0392b; }
+
+        .swot-card.oportunidades {
+            background-color: rgba(224, 138, 34, 0.04);
+            border-left: 5px solid #e08a22;
+        }
+
+        .swot-card.oportunidades h3 { color: #e08a22; }
+
+        .swot-card.amenazas {
+            background-color: rgba(142, 68, 173, 0.04);
+            border-left: 5px solid #8e44ad;
+        }
+
+        .swot-card.amenazas h3 { color: #8e44ad; }
+
+        .swot-card h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ===========================================
+           MOBILE NAVIGATION & CONTROLS
+           =========================================== */
+        .mobile-header {
+            display: none;
+            background-color: var(--bg-sidebar);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 1.5rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 101;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-header h2 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--accent-brand);
+        }
+
+        .menu-toggle-btn {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 0.2rem;
+        }
+
+        /* Responsive Breakpoint: Mobile & Tablets */
+        @media (max-width: 992px) {
+            aside.sidebar {
+                transform: translateX(-100%);
+                transition: transform var(--transition-speed) ease;
+                width: 280px;
+            }
+
+            aside.sidebar.open {
+                transform: translateX(0);
+            }
+
+            main.main-content {
+                margin-left: 0;
+                padding-top: 6rem;
+            }
+
+            .mobile-header {
+                display: flex;
+            }
+
+            .grid-2, .grid-3, .swot-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Móvil -->
+    <header class="mobile-header">
+        <h2>Dos Soles • Plan Estratégico</h2>
+        <button class="menu-toggle-btn" id="menuToggle" aria-label="Abrir menú">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Sidebar de Navegación -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h1>Dos Soles</h1>
+            <span>Plan Estratégico</span>
+        </div>
+        <nav>
+            <ul class="sidebar-menu">
+                <li class="active"><a href="#manifiesto">Manifiesto de Marca</a></li>
+                <li><a href="#resumen">Resumen Ejecutivo</a></li>
+                <li><a href="#contexto">Contexto de Mercado</a></li>
+                <li><a href="#benchmark">Benchmark</a></li>
+                <li><a href="#diagnostico">Diagnóstico</a></li>
+                <li><a href="#foda">Matriz FODA</a></li>
+                <li><a href="#personas">Customer Personas</a></li>
+                <li><a href="#ecosistema">Ecosistema Dos Soles</a></li>
+                <li><a href="#digital">Estrategia Digital</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Área de Contenido Principal -->
+    <main class="main-content">
+
+        <!-- SECCIÓN 1: MANIFIESTO -->
+        <section id="manifiesto" class="doc-section">
+            <span class="slide-tag">Filosofía de Marca</span>
+            <h2 class="section-title" style="margin-top: 1rem;">Manifiesto de Dos Soles</h2>
+            
+            <p class="lead-text" style="font-style: italic; color: var(--accent-brand); margin: 2rem 0; font-weight: 600; line-height: 1.8;">
+                "Para quienes hacen de la belleza una profesión. Creemos en quienes comienzan antes que salga el sol para abrir su salón. En quienes estudian cada tendencia. En quienes nunca dejan de capacitarse."
+            </p>
+            
+            <p>Creemos firmemente que detrás de cada color, de cada corte y de cada tratamiento capilar hay mucho más que simple técnica: hay confianza depositada, hay vocación profunda y hay personas construyendo relaciones genuinas.</p>
+            
+            <div class="callout-box">
+                <h4>El Corazón del Negocio</h4>
+                <p>Durante años hemos caminado junto a miles de profesionales de la belleza. Aprendimos de ellos, crecimos a la par, celebramos cada uno de sus logros y superamos grandes desafíos. Entendimos que nuestro trabajo nunca fue simplemente distribuir productos. Nuestro rol es acompañar a quienes hacen crecer esta industria día tras día. Porque cuando un profesional crece, crece toda la comunidad. El profesional es y seguirá siendo el corazón de Dos Soles.</p>
+            </div>
+
+            <p>También sostenemos que el conocimiento merece compartirse, y que cualquier persona debería poder acceder a productos originales, a un asesoramiento de calidad y a recomendaciones honestas con resultados verdaderamente profesionales. El cuidado de tu cabello no debe depender del azar ni de comprar el producto correcto por casualidad.</p>
+            
+            <p class="lead-text" style="font-weight: 700; color: var(--text-primary); text-align: center; margin-top: 2.5rem;">
+                "No elegimos entre profesionales y consumidores. Elegimos construir un puente entre ambos."
+            </p>
+        </section>
+
+        <!-- SECCIÓN 2: RESUMEN EJECUTIVO -->
+        <section id="resumen" class="doc-section">
+            <span class="slide-tag">Estructura</span>
+            <h2 class="section-title" style="margin-top: 1rem;">1. Resumen Ejecutivo</h2>
+            
+            <h3 class="subsection-title">Objetivo General</h3>
+            <p>Diseñar e implementar una estrategia integral de marketing, comunicación y posicionamiento que permita fortalecer el liderazgo de Dos Soles en el mercado profesional (B2B) e impulsar su expansión hacia el consumidor final (B2C), construyendo una marca sólida, diferencial y totalmente orientada a la experiencia del cliente.</p>
+
+            <h3 class="subsection-title">Objetivos Estratégicos</h3>
+            <div class="grid-2">
+                <div class="card">
+                    <h4 style="color: var(--accent-brand);">Posicionamiento</h4>
+                    <ul class="styled-list">
+                        <li>Evolucionar la percepción de Dos Soles desde una distribuidora tradicional hacia una marca referente en belleza profesional.</li>
+                        <li>Incrementar el reconocimiento y la recordación de marca.</li>
+                        <li>Desarrollar una identidad única capaz de conectar tanto con estilistas como con consumidores finales.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4 style="color: var(--accent-solar);">Comercial</h4>
+                    <ul class="styled-list">
+                        <li>Incrementar las ventas del segmento B2B mediante acciones de fidelización y valor agregado.</li>
+                        <li>Desarrollar un nuevo canal de crecimiento B2C sin afectar el posicionamiento profesional.</li>
+                        <li>Incrementar el ticket promedio mediante venta cruzada y bundles.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: CONTEXTO DE MERCADO -->
+        <section id="contexto" class="doc-section">
+            <span class="slide-tag">Análisis del Sector</span>
+            <h2 class="section-title" style="margin-top: 1rem;">2. Contexto de Mercado & Tendencias</h2>
+            
+            <p>La industria de la belleza atraviesa un proceso de transformación acelerado. La digitalización, el crecimiento del e-commerce y el acceso masivo a la información han modificado la forma en que las personas descubren y compran productos de cuidado personal. Hoy, la experiencia de compra y la confianza se han convertido en elementos decisivos sobre el precio.</p>
+
+            <h3 class="subsection-title">Las 5 Grandes Tendencias del Sector</h3>
+            <div class="grid-3">
+                <div class="card">
+                    <h4>1. El Conocimiento vende</h4>
+                    <p>Las marcas exitosas ya no comunican únicamente promociones de productos. Comunican tutoriales, consejos, diagnósticos y comparativas. La educación genera confianza, y la confianza genera ventas.</p>
+                </div>
+                <div class="card">
+                    <h4>2. Comunidad vs. Audiencia</h4>
+                    <p>Las empresas ya no buscan seguidores pasivos; buscan construir comunidades activas que participen, comenten, recomienden y vuelvan a comprar.</p>
+                </div>
+                <div class="card">
+                    <h4>3. Diferenciación en E-commerce</h4>
+                    <p>El canal online ya no compite únicamente por precio bajo. Los clientes valoran la rapidez, el asesoramiento personalizado y las recomendaciones honestas.</p>
+                </div>
+            </div>
+            
+            <div class="grid-2" style="margin-top: 1.5rem;">
+                <div class="card">
+                    <h4>4. Auge del Cuidado Capilar</h4>
+                    <p>El cuidado del cuero cabelludo y la salud capilar dejaron de ser temas exclusivamente técnicos de salón para convertirse en una tendencia masiva de bienestar preventivo.</p>
+                </div>
+                <div class="card">
+                    <h4>5. Soluciones Completas</h4>
+                    <p>Cada vez menos personas desean comprar productos aislados. Buscan rutinas completas, tratamientos por pasos y kits armados, favoreciendo las estrategias de bundles.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: BENCHMARK -->
+        <section id="benchmark" class="doc-section">
+            <span class="slide-tag">Competidores</span>
+            <h2 class="section-title" style="margin-top: 1rem;">3. Benchmark Estratégico</h2>
+            
+            <p>Al analizar los referentes nacionales e internacionales se observa que las marcas líderes no venden productos aislados; construyen marcas, experiencias y comunidades sólidas.</p>
+
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Referente</th>
+                        <th>Estrategia Observada</th>
+                        <th>Aprendizaje Clave</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sally Beauty</strong></td>
+                        <td>Comunica soluciones directas y organiza el contenido según necesidades del consumidor.</td>
+                        <td>Ordenar la comunicación desde los problemas del cliente y no desde el catálogo.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Get The Look</strong></td>
+                        <td>Integra inspiración, educación y compra directa en un solo lugar.</td>
+                        <td>Cada contenido educativo debe ser una oportunidad de conversión comercial.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>L'Oréal Professionnel</strong></td>
+                        <td>Vende tendencias, moda y educación antes de empujar la venta de tinturas.</td>
+                        <td>Construir autoridad sólida antes de vender el producto final.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Juleriaque</strong></td>
+                        <td>La experiencia de compra se cuida al mismo nivel que la calidad del producto.</td>
+                        <td>La nueva web debe transmitir una experiencia de marca sumamente superior.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECCIÓN 5: DIAGNÓSTICO -->
+        <section id="diagnostico" class="doc-section">
+            <span class="slide-tag">Estado Actual</span>
+            <h2 class="section-title" style="margin-top: 1rem;">4. Diagnóstico de Dos Soles</h2>
+            
+            <p>Dos Soles es una empresa sólida con un negocio B2B establecido, excelente reputación y activos únicos. Sin embargo, existe una brecha notable entre lo que la empresa es y lo que el mercado percibe.</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <h3>¿Qué es hoy Dos Soles?</h3>
+                    <p>Distribuidor oficial de marcas líderes, especialista en cosmética capilar con Centro Técnico, showroom interactivo y un equipo técnico con conocimiento muy especializado.</p>
+                </div>
+                <div class="card" style="border-left: 5px solid var(--accent-brand);">
+                    <h3>¿Cómo se comunica?</h3>
+                    <p>Principalmente como "una distribuidora". La comunicación actual resume toda la empresa en una sola función logística de distribución, dejando invisibles sus diferenciales.</p>
+                </div>
+            </div>
+
+            <div class="callout-box" style="border-left-color: var(--accent-solar);">
+                <h4>El Riesgo de la Subcapitalización</h4>
+                <p>Gran parte del valor que percibe el cliente final se construye sobre marcas de terceros (Matrix, Truss, L'Oréal). Como cualquier distribuidor puede vender las mismas marcas, la ventaja competitiva real no puede basarse únicamente en el catálogo, sino en la <strong>experiencia y el valor agregado propio de Dos Soles</strong>.</p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 6: MATRIZ FODA -->
+        <section id="foda" class="doc-section">
+            <span class="slide-tag">Matriz FODA</span>
+            <h2 class="section-title" style="margin-top: 1rem;">5. Análisis FODA</h2>
+            
+            <div class="swot-grid">
+                <div class="swot-card fortalezas">
+                    <h3>Fortalezas</h3>
+                    <ul class="styled-list">
+                        <li>19 años de trayectoria en el sector.</li>
+                        <li>Excelente reputación en el canal profesional.</li>
+                        <li>Centro Técnico propio y capacitaciones activas.</li>
+                        <li>Distribuidor oficial de primeras marcas capilares.</li>
+                    </ul>
+                </div>
+                <div class="swot-card debilidades">
+                    <h3>Debilidades</h3>
+                    <ul class="styled-list">
+                        <li>Marca institucional menos fuerte que las marcas del catálogo.</li>
+                        <li>Comunicación muy centrada en promociones de productos.</li>
+                        <li>Escasa comunicación emocional y de identidad.</li>
+                        <li>Baja construcción de comunidad orgánica.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="swot-grid">
+                <div class="swot-card oportunidades">
+                    <h3>Oportunidades</h3>
+                    <ul class="styled-list">
+                        <li>Crecimiento del consumo de cosmética profesional en hogares.</li>
+                        <li>Creación de canales propios de educación y contenidos.</li>
+                        <li>Desarrollo del ecommerce con foco en autodiagnóstico.</li>
+                        <li>Lanzamiento del Club Dos Soles y programas de fidelidad.</li>
+                    </ul>
+                </div>
+                <div class="swot-card amenazas">
+                    <h3>Amenazas</h3>
+                    <ul class="styled-list">
+                        <li>Competencia agresiva por precio en marketplaces masivos.</li>
+                        <li>Dependencia absoluta de las políticas de marcas internacionales.</li>
+                        <li>Saturación publicitaria en canales tradicionales.</li>
+                        <li>Incremento constante en el costo de adquisición de clientes.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 7: CUSTOMER PERSONAS -->
+        <section id="personas" class="doc-section">
+            <span class="slide-tag">Clientes</span>
+            <h2 class="section-title" style="margin-top: 1rem;">6. Insights del Consumidor</h2>
+            
+            <p>La base del reposicionamiento es entender que las personas no buscan simplemente comprar un shampoo profesional; buscan **sentirse acompañadas para lograr un mejor resultado** en su cabello.</p>
+
+            <div class="grid-3">
+                <div class="card">
+                    <span class="slide-tag" style="font-size: 0.7rem; margin-bottom: 0.5rem;">Carolina (33) • B2C</span>
+                    <h3>La Buscadora</h3>
+                    <p>Compra de forma online y sigue influencers. Quiere cuidar su cabello pero no entiende la diferencia técnica entre marcas. Necesita recomendaciones honestas y sencillas.</p>
+                </div>
+                <div class="card">
+                    <span class="slide-tag" style="font-size: 0.7rem; margin-bottom: 0.5rem;">Mariana (42) • B2C</span>
+                    <h3>La Exigente</h3>
+                    <p>Va con regularidad al salón. Desea replicar y mantener ese mismo resultado profesional en su casa. Está dispuesta a pagar más si se le asegura calidad y resultados reales.</p>
+                </div>
+                <div class="card">
+                    <span class="slide-tag" style="font-size: 0.7rem; margin-bottom: 0.5rem;">Nicolás • B2B</span>
+                    <h3>El Estilista</h3>
+                    <p>Peluquero profesional. Sus prioridades son el stock constante de tinturas, la atención rápida, el soporte técnico directo y capacitaciones para su personal.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 8: ECOSISTEMA DOS SOLES -->
+        <section id="ecosistema" class="doc-section">
+            <span class="slide-tag">Estructura</span>
+            <h2 class="section-title" style="margin-top: 1rem;">7. El Ecosistema Dos Soles</h2>
+            
+            <p>Esta es la idea central de la consultoría. Dos Soles debe dejar de ser visto como un intermediario logístico y pasar a ser un **ecosistema de belleza profesional** donde todos los activos colaboren entre sí de forma orgánica.</p>
+
+            <div class="card" style="margin: 2rem 0; background: var(--accent-soft); border-color: var(--accent-brand);">
+                <h3 style="margin-top: 0; color: var(--accent-brand);">La Sinergia del Ecosistema</h3>
+                <p>El blog educativo atrae tráfico calificado de Google → Los artículos derivan visitas al ecommerce → El ecommerce invita al usuario a unirse al **Club Dos Soles** → La comunidad interactúa mediante el Canal de WhatsApp y redes sociales → El Centro Técnico provee contenidos e invita a eventos presenciales en el showroom → Se genera comunidad que recomienda de boca en boca, impulsando nuevas ventas orgánicas.</p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 9: ESTRATEGIA DIGITAL -->
+        <section id="digital" class="doc-section">
+            <span class="slide-tag">Digital</span>
+            <h2 class="section-title" style="margin-top: 1rem;">8. Estrategia Digital & Contenidos</h2>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Plataforma Web Centrada en Soluciones</h3>
+                    <p>La nueva web no será un simple listado de productos. Estará organizada por necesidades de cabello (Frizz, Decoloración, Daño) guiando al usuario hacia rutinas recomendadas y kits completos de compra.</p>
+                </div>
+                <div class="card">
+                    <h3>WhatsApp de Venta Consultiva</h3>
+                    <p>WhatsApp dejará de ser una herramienta de soporte básico. Actuará como un canal de diagnóstico personalizado, recomendando rutinas específicas basadas en fotos o consultas directas.</p>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">Distribución de Contenidos en Redes</h3>
+            <p>Proponemos que los contenidos de la marca dejen de actuar solo como soporte de ventas y pasen a generar la venta de forma nativa a través de la educación y el valor:</p>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Pilar</th>
+                        <th>Porcentaje</th>
+                        <th>Temáticas Clave</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Educación</strong></td>
+                        <td>40%</td>
+                        <td>Tutoriales de rutinas, errores comunes, diagnósticos caseros, paso a paso de productos.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inspiración</strong></td>
+                        <td>20%</td>
+                        <td>Resultados del "antes y después", tendencias de color, peinados y estilos modernos.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Autoridad</strong></td>
+                        <td>20%</td>
+                        <td>Cobertura de capacitaciones presenciales, backstage de eventos y certificaciones.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Comercial</strong></td>
+                        <td>20%</td>
+                        <td>Lanzamientos exclusivos de productos, promociones de kits armados y combos especiales.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <!-- Script de Interactividad -->
+    <script>
+        // Navegación Activa y Scroll
+        const sections = document.querySelectorAll('.doc-section');
+        const navLi = document.querySelectorAll('.sidebar-menu li');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 120)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLi.forEach(li => {
+                li.classList.remove('active');
+                if (li.querySelector('a').getAttribute('href').slice(1) === current) {
+                    li.classList.add('active');
+                }
+            });
+        });
+
+        // Menú Hamburguesa para Móvil
+        const menuToggle = document.getElementById('menuToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            sidebar.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!sidebar.contains(e.target) && sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+            }
+        });
+
+        // Cerrar menú al hacer clic en un enlace de navegación
+        navLi.forEach(li => {
+            li.addEventListener('click', () => {
+                if (sidebar.classList.contains('open')) {
+                    sidebar.classList.remove('open');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
