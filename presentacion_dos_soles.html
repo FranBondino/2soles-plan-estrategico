@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Estratégico - Dos Soles</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans (Branding oficial de Dos Soles) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===========================================
+           CSS CUSTOM PROPERTIES (DOS SOLES BRANDING)
+           =========================================== */
+        :root {
+            /* Colores de marca */
+            --bg-primary: #FAF9F6; /* Crema/gris muy suave premium */
+            --bg-gradient: linear-gradient(180deg, #FAF9F6 0%, #F5F2EC 100%);
+            --card-bg: #FFFFFF;
+            --text-primary: #121212; /* Negro elegante */
+            --text-secondary: #5C5A56; /* Gris cálido */
+            --accent-brand: #A7144C; /* Magenta/Vino de Dos Soles */
+            --accent-solar: #E08A22; /* Amarillo/naranja solar de acento */
+            --accent-soft: rgba(167, 20, 76, 0.08);
+
+            /* Tipografía */
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            
+            /* Animación */
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --duration-normal: 0.8s;
+        }
+
+        /* Reset y Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow: hidden;
+            user-select: none;
+        }
+
+        /* ===========================================
+           VIEWPORT FITTING: MANDATORY BASE STYLES
+           =========================================== */
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: var(--bg-gradient);
+            padding: var(--slide-padding);
+        }
+
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            max-width: min(90vw, 1100px);
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            max-height: 100%;
+            overflow: hidden;
+            gap: var(--content-gap);
+        }
+
+        :root {
+            --title-size: clamp(1.8rem, 4.5vw, 3.8rem);
+            --h2-size: clamp(1.4rem, 3vw, 2.2rem);
+            --h3-size: clamp(1.1rem, 2vw, 1.5rem);
+            --body-size: clamp(0.85rem, 1.4vw, 1.1rem);
+            --small-size: clamp(0.7rem, 0.9vw, 0.85rem);
+
+            --slide-padding: clamp(1.5rem, 5vw, 4rem);
+            --content-gap: clamp(1rem, 3.5vw, 2.5rem);
+            --element-gap: clamp(0.4rem, 1.5vw, 1.2rem);
+        }
+
+        /* Diapositiva de Portada */
+        .title-slide {
+            background: radial-gradient(circle at 80% 20%, rgba(224, 138, 34, 0.15) 0%, rgba(167, 20, 76, 0.08) 40%, #FAF9F6 100%);
+        }
+
+        /* Componentes Comunes */
+        h1, h2, h3 {
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+        }
+
+        h2 {
+            color: var(--accent-brand);
+            position: relative;
+            padding-bottom: 0.3em;
+            margin-bottom: 0.2em;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-brand);
+            border-radius: 2px;
+        }
+
+        .slide-tag {
+            font-size: var(--small-size);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-solar);
+            background: rgba(224, 138, 34, 0.1);
+            padding: 0.4em 1em;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        /* Grid System */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--content-gap);
+            width: 100%;
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--element-gap);
+            width: 100%;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: clamp(1.2rem, 2vw, 2rem);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(167, 20, 76, 0.05);
+            transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(167, 20, 76, 0.06);
+        }
+
+        .card h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5em;
+            font-size: var(--h3-size);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: var(--body-size);
+            line-height: 1.5;
+        }
+
+        .card-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--accent-soft);
+            margin-bottom: 1rem;
+        }
+
+        .card-icon svg {
+            stroke: var(--accent-brand);
+        }
+
+        /* Listas Estilizadas */
+        ul.bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: var(--element-gap);
+        }
+
+        ul.bullet-list li {
+            position: relative;
+            padding-left: 1.8em;
+            font-size: var(--body-size);
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        ul.bullet-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0.1em;
+            color: var(--accent-brand);
+            font-weight: 900;
+            font-size: 1.1em;
+        }
+
+        /* Píldoras e Indicadores */
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: var(--element-gap);
+        }
+
+        .badge {
+            background: var(--card-bg);
+            color: var(--text-primary);
+            padding: 0.6em 1.2em;
+            border-radius: 50px;
+            font-size: var(--small-size);
+            font-weight: 600;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+
+        .badge.active {
+            background: var(--accent-brand);
+            color: white;
+            border-color: var(--accent-brand);
+        }
+
+        /* ===========================================
+           ANIMACIONES
+           =========================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity var(--duration-normal) var(--ease-out-expo),
+                        transform var(--duration-normal) var(--ease-out-expo);
+        }
+
+        .slide.visible .reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger delays */
+        .reveal:nth-child(1) { transition-delay: 0.1s; }
+        .reveal:nth-child(2) { transition-delay: 0.25s; }
+        .reveal:nth-child(3) { transition-delay: 0.4s; }
+        .reveal:nth-child(4) { transition-delay: 0.55s; }
+        .reveal:nth-child(5) { transition-delay: 0.7s; }
+
+        /* Controles de Presentación */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-solar) 0%, var(--accent-brand) 100%);
+            width: 0%;
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        .nav-dots {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            z-index: 1000;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--accent-brand);
+            transform: scale(1.4);
+        }
+
+        .keyboard-hint {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 2rem;
+            font-size: 11px;
+            color: var(--text-secondary);
+            opacity: 0.6;
+            z-index: 1000;
+        }
+
+        /* ===========================================
+           EDICIÓN INTERACTIVA (JS-CONTROLLED)
+           =========================================== */
+        .edit-hotzone {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 80px;
+            z-index: 10000;
+            cursor: pointer;
+        }
+
+        .edit-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: var(--accent-brand);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(167, 20, 76, 0.3);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.2s ease;
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .edit-toggle svg {
+            stroke: currentColor;
+            fill: none;
+        }
+
+        .edit-toggle.show,
+        .edit-toggle.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .edit-toggle.active {
+            background: #27ae60;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        .edit-btn-export {
+            position: fixed;
+            top: 20px;
+            left: 170px;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .edit-btn-export svg {
+            stroke: currentColor;
+            fill: none;
+        }
+
+        .edit-btn-export.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        [contenteditable="true"] {
+            outline: 2px dashed var(--accent-brand);
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: rgba(167, 20, 76, 0.03);
+            user-select: text !important;
+        }
+
+        /* Adaptación Responsiva Alturas */
+        @media (max-height: 700px) {
+            :root {
+                --slide-padding: clamp(1rem, 3vw, 2rem);
+                --content-gap: clamp(0.8rem, 2vw, 1.5rem);
+            }
+            .card {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .nav-dots {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de progreso superior -->
+    <div class="progress-bar"></div>
+
+    <!-- Indicador de navegación lateral -->
+    <nav class="nav-dots"></nav>
+
+    <!-- Zona sensible para edición interactiva -->
+    <div class="edit-hotzone"></div>
+    
+    <button class="edit-toggle" id="editToggle" title="Modo edición (E)">
+        <svg width="14" height="14" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 20h9"></path>
+            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>
+        </svg>
+        <span id="editTextLabel">Editar Texto</span>
+    </button>
+    
+    <button class="edit-btn-export" id="exportBtn">
+        <svg width="14" height="14" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" x2="12" y1="15" y2="3"></line>
+        </svg>
+        Guardar Cambios
+    </button>
+
+    <!-- Pistas de teclado -->
+    <div class="keyboard-hint">Usá las flechas (← / →) o Barra Espaciadora</div>
+
+    <!-- ===========================================
+         SLIDES
+         =========================================== */ -->
+
+    <!-- Diapositiva 1: Portada -->
+    <section class="slide title-slide">
+        <div class="slide-content">
+            <span class="slide-tag reveal">Plan Estratégico 12 Meses</span>
+            <h1 class="reveal" style="font-size: var(--title-size); color: var(--text-primary); margin-top: 0.2em;">
+                Evolución de Marca & <br><span style="color: var(--accent-brand);">Ecosistema Digital</span>
+            </h1>
+            <p class="reveal" style="font-size: var(--h3-size); color: var(--text-secondary); max-width: 700px; font-weight: 500; margin-top: 0.5em;">
+                Dos Soles: De distribuidor tradicional a referente de belleza profesional.
+            </p>
+            <p class="reveal" style="font-size: var(--body-size); color: var(--accent-brand); font-weight: 700; margin-top: 1em;">
+                "La experiencia de los profesionales, ahora también para vos"
+            </p>
+        </div>
+    </section>
+
+    <!-- Diapositiva 2: Contexto de Mercado -->
+    <section class="slide">
+        <div class="slide-content">
+            <span class="slide-tag reveal">Contexto</span>
+            <h2 class="reveal">La Transformación de la Belleza</h2>
+            <div class="grid-2 reveal">
+                <div class="card">
+                    <h3>El Recorrido Digital</h3>
+                    <p>El cliente ya no entra directo a comprar. Descubre en redes, investiga ingredientes, lee reseñas en Google, consulta en WhatsApp y luego realiza la compra. La influencia del vendedor tradicional ha disminuido significativamente.</p>
+                </div>
+                <div class="card">
+                    <h3>Profesionalización del Consumidor</h3>
+                    <p>El consumidor final busca soluciones de salón en su casa: tratamientos capilares profesionales, rutinas completas y asesoramiento experto. Esto abre una oportunidad enorme para Dos Soles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diapositiva 3: Diagnóstico de Percepción -->
+    <section class="slide">
+        <div class="slide-content">
+            <span class="slide-tag reveal">Diagnóstico</span>
+            <h2 class="reveal">Brecha de Percepción</h2>
+            <div class="grid-2 reveal">
+                <div class="card" style="border-left: 5px solid var(--accent-solar);">
+                    <h3>Lo que Dos Soles ES</h3>
+                    <p>Trayectoria de 19 años, centro de capacitación técnica avanzada, showroom interactivo, ecommerce oficial, asesoría experta y respaldo de marcas líderes internacionales.</p>
+                </div>
+                <div class="card" style="border-left: 5px solid var(--accent-brand);">
+                    <h3>Lo que el Mercado PERCIBE</h3>
+                    <p>Una "distribuidora" tradicional de productos. La comunicación actual reduce todas las capacidades de la empresa a la mera entrega física de mercadería.</p>
+                </div>
+            </div>
+            <p class="reveal" style="font-size: var(--body-size); font-weight: 700; color: var(--accent-brand); margin-top: 1em;">
+                ¡El desafío no es cambiar el negocio, sino transformar la percepción!
+            </p>
+        </div>
+    </section>
+
+    <!-- Diapositiva 4: Evolución de Marca -->
+    <section class="slide">
+        <div class="slide-content">
+            <span class="slide-tag reveal">Evolución</span>
+            <h2 class="reveal">De Distribuidor a Referente</h2>
+            <div class="grid-2 reveal">
+                <div>
+                    <h3 style="margin-bottom: 0.8em; font-size: var(--h3-size);">La Transición del Mensaje</h3>
+                    <ul class="bullet-list">
+                        <li><strong>Antes:</strong> "Vendemos productos profesionales." (Transaccional, centrado en precio y stock).</li>
+                        <li><strong>Mañana:</strong> "Somos el lugar donde encontrás la mejor solución para tu cabello." (Centrado en soluciones y valor).</li>
+                        <li><strong>Del producto al cliente:</strong> Cambiamos la pregunta de *"Tenemos Matrix"* a *"¿Qué necesita tu cabello?"*.</li>
+                    </ul>
+                </div>
+                <div class="card" style="background: var(--accent-soft); border: 1px solid var(--accent-brand);">
+                    <h3>Riesgo de Subcapitalización</h3>
+                    <p>Hoy el valor percibido está en marcas de terceros (L'Oréal, Truss, etc.). Cualquier competidor vende las mismas marcas. Nuestra ventaja competitiva real debe ser la <strong>propia experiencia y autoridad de Dos Soles</strong>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diapositiva 5: Propósito de Marca -->
+    <section class="slide">
+        <div class="slide-content">
+            <span class="slide-tag reveal">Identidad</span>
+            <h2 class="reveal">Propósito y Promesa Central</h2>
+            <div class="card reveal" style="width: 100%; padding: 2.5rem; text-align: center; background: radial-gradient(circle, rgba(224,138,34,0.05) 0%, rgba(167,20,76,0.05) 100%);">
+                <h3 style="color: var(--accent-brand); font-size: var(--h2-size); margin-bottom: 0.3em;">Democratizar el acceso a la belleza profesional.</h3>
+                <p style="font-size: var(--body-size); max-width: 800px; margin: 0 auto 1.5em auto; font-weight: 500;">
+                    Acercando productos, conocimiento y asesoramiento especializado para que cualquier persona alcance resultados profesionales, tanto en el salón como en su hogar.
+                </p>
+                <div class="slide-tag" style="background: var(--accent-brand); color: white;">Nuestra Promesa: "La experiencia de los profesionales, ahora también para vos"</div>
+            </div>
+            <div class="badge-container reveal" style="justify-content: center; width: 100%;">
+                <span class="badge active">Confianza</span>
+                <span class="badge active">Profesionalismo</span>
+                <span class="badge active">Cercanía</span>
+                <span class="badge active">Educación</span>
+                <span class="badge active">Innovación</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diapositiva 6: Pilares de Posicionamiento -->
+    <section class="slide">
+        <div class="slide-content">
+            <span class="slide-tag reveal">Estrategia</span>
+            <h2 class="reveal">El Nuevo Territorio de Marca</h2>
+            <div class="grid-3 reveal">
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Icono de Libro (Conocimiento) -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>Conocimiento</h3>
+                    <p>La empresa sabe, enseña, capacita y asesora. El conocimiento técnico del Centro Técnico se convierte en el principal generador de ventas.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Icono de Estrella (Experiencia) -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3>Experiencia</h3>
+                    <p>No solo vendemos productos. Acompañamos a los clientes a lo largo de su rutina y les enseñamos a obtener el mejor resultado posible.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <!-- Icono de Escudo (Confianza) -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <h3>Confianza</h3>
+                    <p>Toda recomendación tiene el respaldo y criterio técnico de profesionales de la belleza. Garantía de originalidad y honestidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diapositiva 7: Segmentación de Clientes -->
+    <section class="slide">
+        <div class="slide-content">
+            <span class="slide-tag reveal">Audiencias</span>
+            <h2 class="reveal">Customer Personas</h2>
+            <div class="grid-3 reveal">
+                <div class="card">
+                    <div class="slide-tag" style="margin-bottom: 0.8em; font-size: 11px;">Carolina (33) • B2C</div>
+                    <h3>La Buscadora</h3>
+                    <p style="margin-bottom: 0.5em;">Trabaja, tiene hijos, compra online. Quiere cuidar su cabello pero no entiende las diferencias técnicas de las marcas.</p>
+                    <strong style="color: var(--accent-brand); font-size: var(--small-size);">Necesita: Recomendación simple.</strong>
+                </div>
+                <div class="card">
+                    <div class="slide-tag" style="margin-bottom: 0.8em; font-size: 11px;">Mariana (42) • B2C</div>
+                    <h3>La Exigente</h3>
+                    <p style="margin-bottom: 0.5em;">Va regularmente al salón y quiere mantener los resultados profesionales en su hogar. Dispuesta a pagar más.</p>
+                    <strong style="color: var(--accent-brand); font-size: var(--small-size);">Necesita: Calidad y resultados.</strong>
+                </div>
+                <div class="card">
+                    <div class="slide-tag" style="margin-bottom: 0.8em; font-size: 11px;">Nicolás • B2B</div>
+                    <h3>El Profesional</h3>
+                    <p style="margin-bottom: 0.5em;">Peluquero de salón. Necesita stock garantizado, atención rápida, capacitaciones constantes y soporte técnico.</p>
+                    <strong style="color: var(--accent-brand); font-size: var(--small-size);">Necesita: Un aliado de negocio.</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diapositiva 8: Ecosistema Omnicanal -->
+    <section class="slide">
+        <div class="slide-content">
+            <span class="slide-tag reveal">Infraestructura</span>
+            <h2 class="reveal">El Ecosistema Integrado</h2>
+            <div class="grid-2 reveal">
+                <div>
+                    <h3 style="margin-bottom: 0.8em;">Activos que Cooperan</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1em; font-size: var(--body-size);">
+                        Hasta ahora, los canales funcionaban por separado. La estrategia plantea integrarlos en un círculo virtuoso que reduzca la dependencia de pauta publicitaria paga.
+                    </p>
+                    <ul class="bullet-list">
+                        <li>El blog capta tráfico de Google y lo deriva al ecommerce.</li>
+                        <li>El ecommerce invita a formar parte del **Club Dos Soles**.</li>
+                        <li>El Centro Técnico genera contenidos de autoridad.</li>
+                        <li>La comunidad impulsa recomendaciones que traen ventas.</li>
+                    </ul>
+                </div>
+                <div class="card" style="display: flex; flex-direction: column; justify-content: center; gap: 0.8em;">
+                    <div style="font-weight: 800; color: var(--accent-brand); font-size: var(--h3-size); text-align: center;">El Embudo Orgánico</div>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; width: 100%;">
+                        <div style="background: rgba(167,20,76,0.1); padding: 0.6em; text-align: center; border-radius: 8px; font-weight: 700; font-size: var(--small-size);">1. BLOG & SEO (Atracción)</div>
+                        <div style="background: rgba(167,20,76,0.2); padding: 0.6em; text-align: center; border-radius: 8px; font-weight: 700; font-size: var(--small-size);">2. ECOMMERCE & DIAGNÓSTICO (Conversión)</div>
+                        <div style="background: rgba(167,20,76,0.3); padding: 0.6em; text-align: center; border-radius: 8px; font-weight: 700; font-size: var(--small-size); color: white;">3. WHATSAPP & CLUB (Fidelización)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diapositiva 9: Estrategia Digital y Web -->
+    <section class="slide">
+        <div class="slide-content">
+            <span class="slide-tag reveal">Digital</span>
+            <h2 class="reveal">La Nueva Experiencia Web</h2>
+            <div class="grid-2 reveal">
+                <div class="card">
+                    <h3>Navegación Basada en Necesidades</h3>
+                    <p style="margin-bottom: 1em;">La web no será solo un listado de productos y marcas. Guiará al usuario a través de un autodiagnóstico:</p>
+                    <div style="background: var(--bg-primary); padding: 0.8em; border-radius: 10px; font-size: var(--small-size); border-left: 4px solid var(--accent-brand);">
+                        <strong>Ejemplo:</strong> Frizz → Rutina recomendada → Detalle del tratamiento → Compra del Kit completo.
+                    </div>
+                </div>
+                <div class="card">
+                    <h3>WhatsApp Consultivo</h3>
+                    <p>WhatsApp deja de ser reactivo. Pasa a ser un consultorio capilar digital donde el equipo ayuda a diseñar la rutina ideal. Es una venta de valor que fomenta la recompra.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diapositiva 10: Estrategia de Contenidos -->
+    <section class="slide">
+        <div class="slide-content">
+            <span class="slide-tag reveal">Contenidos</span>
+            <h2 class="reveal">Estrategia para Redes Sociales</h2>
+            <p class="reveal" style="font-size: var(--body-size); color: var(--text-secondary); max-width: 800px;">
+                Cambiamos el rol del contenido: en lugar de acompañar la venta, el contenido debe **generar la venta** a través de la confianza.
+            </p>
+            <div class="grid-2 reveal" style="align-items: stretch; margin-top: 0.5em;">
+                <div class="card">
+                    <h3>Distribución Sugerida</h3>
+                    <ul class="bullet-list" style="gap: 0.5em;">
+                        <li><strong>40% Educación:</strong> Tutoriales, rutinas, errores comunes, diagnósticos.</li>
+                        <li><strong>20% Inspiración:</strong> Transformaciones de cabello de clientes, tendencias de estilo.</li>
+                        <li><strong>20% Autoridad:</strong> Eventos, cobertura técnica, capacitaciones en Centro Técnico.</li>
+                        <li><strong>20% Comercial:</strong> Combos, promociones de kits y lanzamientos exclusivos.</li>
+                    </ul>
+                </div>
+                <div class="card" style="background: var(--accent-soft); display: flex; flex-direction: column; justify-content: center;">
+                    <h3>El Blog como Motor SEO</h3>
+                    <p style="font-size: var(--body-size);">
+                        El blog responderá las preguntas que los clientes ya buscan en Google: 
+                        <br><em>• "Cómo mantener el color teñido por más tiempo."</em>
+                        <br><em>• "Diferencias entre shampoo comercial y profesional."</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diapositiva 11: Club Dos Soles -->
+    <section class="slide">
+        <div class="slide-content">
+            <span class="slide-tag reveal">Comunidad</span>
+            <h2 class="reveal">Club Dos Soles</h2>
+            <div class="grid-2 reveal">
+                <div>
+                    <h3 style="margin-bottom: 0.6em;">Crear Pertenencia, no solo Descuentos</h3>
+                    <p style="color: var(--text-secondary); font-size: var(--body-size); margin-bottom: 1em;">
+                        Un espacio que reúne a consumidores finales, estilistas profesionales, alumnos de las capacitaciones y asistentes a eventos.
+                    </p>
+                    <ul class="bullet-list">
+                        <li>Acceso anticipado a lanzamientos mundiales.</li>
+                        <li>Invitaciones a eventos y talleres cerrados de capacitación.</li>
+                        <li>Sorteos mensuales y contenido exclusivo en canales cerrados.</li>
+                        <li>Programa de puntos y descuentos en recompra de rutinas.</li>
+                    </ul>
+                </div>
+                <div class="card" style="border: 2px dashed var(--accent-brand); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                    <div class="card-icon" style="width: 64px; height: 64px; border-radius: 50%; margin-bottom: 1rem;">
+                        <!-- Icono de Corona/Premio (Valor Exclusivo) -->
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 4l3 12h14l3-12-6 7-4-7-4 7-6-7z"></path>
+                            <path d="M3 20h18"></path>
+                        </svg>
+                    </div>
+                    <h3>Valor Exclusivo</h3>
+                    <p style="font-size: var(--small-size); max-width: 250px;">La fidelización constante del Club Dos Soles reduce la dependencia de ofertas masivas y aumenta el valor de vida del cliente (LTV).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diapositiva 12: Plan de Implementación -->
+    <section class="slide">
+        <div class="slide-content">
+            <span class="slide-tag reveal">Hoja de Ruta</span>
+            <h2 class="reveal">Prioridades y Plan de Acción</h2>
+            <div class="grid-3 reveal">
+                <div class="card" style="border-top: 4px solid var(--accent-brand);">
+                    <div style="font-weight: 800; color: var(--accent-brand); font-size: var(--small-size); margin-bottom: 0.5em;">FASE 1: ALTO IMPACTO</div>
+                    <h3>Reposicionamiento</h3>
+                    <p>Redefinir identidad verbal, lanzar la plataforma web con autodiagnóstico, e iniciar el canal de WhatsApp editorial.</p>
+                </div>
+                <div class="card" style="border-top: 4px solid var(--accent-solar);">
+                    <div style="font-weight: 800; color: var(--accent-solar); font-size: var(--small-size); margin-bottom: 0.5em;">FASE 2: ACELERACIÓN</div>
+                    <h3>Automatización</h3>
+                    <p>Configurar flujos de Email Marketing (carrito abandonado, recompra), crear kits comerciales y potenciar SEO en el blog.</p>
+                </div>
+                <div class="card" style="border-top: 4px solid var(--text-secondary);">
+                    <div style="font-weight: 800; color: var(--text-secondary); font-size: var(--small-size); margin-bottom: 0.5em;">FASE 3: CONSOLIDACIÓN</div>
+                    <h3>Comunidad</h3>
+                    <p>Lanzar el Club Dos Soles, organizar eventos interactivos en el showroom e integrar la fidelización omnicanal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diapositiva 13: Conclusión -->
+    <section class="slide" style="background: radial-gradient(circle at 20% 80%, rgba(167, 20, 76, 0.08) 0%, rgba(224, 138, 34, 0.15) 55%, #FAF9F6 100%);">
+        <div class="slide-content" style="align-items: center; text-align: center;">
+            <span class="slide-tag reveal">Conclusión</span>
+            <h2 class="reveal" style="font-size: var(--title-size); text-align: center;">El Futuro de Dos Soles</h2>
+            <p class="reveal" style="font-size: var(--h3-size); color: var(--text-secondary); max-width: 800px; margin-top: 0.5em; font-weight: 500;">
+                Dos Soles no necesita reinventar su negocio. Necesita revelar y comunicar de manera consistente todo el valor que ya posee en sus activos.
+            </p>
+            <div class="reveal" style="margin-top: var(--content-gap);">
+                <p style="font-size: var(--body-size); font-weight: 800; color: var(--accent-brand);">
+                    La distribución ya no es el centro de nuestra propuesta. Es la consecuencia de la confianza y el conocimiento que brindamos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===========================================
+         SCRIPT CONTROLADOR DE DIAPOSITIVAS Y EDICIÓN
+         =========================================== -->
+    <script>
+        class SlidePresentation {
+            constructor() {
+                this.slides = document.querySelectorAll('.slide');
+                this.currentSlide = 0;
+                this.isTransitioning = false;
+                this.progressBar = document.querySelector('.progress-bar');
+                this.dotsContainer = document.querySelector('.nav-dots');
+                
+                this.init();
+            }
+
+            init() {
+                this.setupIntersectionObserver();
+                this.setupNavDots();
+                this.updateProgressBar();
+                this.setupKeyboardNav();
+                this.setupTouchNav();
+                this.setupWheelNav();
+                
+                // Forzar primer slide visible
+                if (this.slides.length > 0) {
+                    this.slides[0].classList.add('visible');
+                    this.updateActiveState();
+                }
+            }
+
+            setupIntersectionObserver() {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            
+                            // Actualizar índice actual
+                            const index = Array.from(this.slides).indexOf(entry.target);
+                            this.currentSlide = index;
+                            this.updateActiveState();
+                            this.updateProgressBar();
+                        }
+                    });
+                }, {
+                    threshold: 0.5
+                });
+
+                this.slides.forEach(slide => observer.observe(slide));
+            }
+
+            setupNavDots() {
+                this.slides.forEach((_, i) => {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => this.scrollToSlide(i));
+                    this.dotsContainer.appendChild(dot);
+                });
+                this.dots = document.querySelectorAll('.dot');
+            }
+
+            scrollToSlide(index) {
+                if (index < 0 || index >= this.slides.length || this.isTransitioning) return;
+                
+                this.isTransitioning = true;
+                this.currentSlide = index;
+                
+                this.slides[index].scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                setTimeout(() => {
+                    this.isTransitioning = false;
+                }, 800); // Duración de transición
+            }
+
+            updateActiveState() {
+                if (this.dots) {
+                    this.dots.forEach((dot, idx) => {
+                        dot.classList.toggle('active', idx === this.currentSlide);
+                    });
+                }
+            }
+
+            updateProgressBar() {
+                const percent = ((this.currentSlide) / (this.slides.length - 1)) * 100;
+                this.progressBar.style.width = `${percent}%`;
+            }
+
+            setupKeyboardNav() {
+                document.addEventListener('keydown', (e) => {
+                    // Evitar navegación si está editando texto
+                    if (document.activeElement.getAttribute('contenteditable')) return;
+
+                    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ') {
+                        e.preventDefault();
+                        this.scrollToSlide(this.currentSlide + 1);
+                    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                        e.preventDefault();
+                        this.scrollToSlide(this.currentSlide - 1);
+                    } else if (e.key === 'PageDown') {
+                        e.preventDefault();
+                        this.scrollToSlide(this.currentSlide + 1);
+                    } else if (e.key === 'PageUp') {
+                        e.preventDefault();
+                        this.scrollToSlide(this.currentSlide - 1);
+                    }
+                });
+            }
+
+            setupTouchNav() {
+                let startY = 0;
+                let startX = 0;
+
+                document.addEventListener('touchstart', (e) => {
+                    startY = e.touches[0].clientY;
+                    startX = e.touches[0].clientX;
+                }, { passive: true });
+
+                document.addEventListener('touchend', (e) => {
+                    const endY = e.changedTouches[0].clientY;
+                    const endX = e.changedTouches[0].clientX;
+                    
+                    const diffY = startY - endY;
+                    const diffX = startX - endX;
+
+                    // Detectar swipe vertical u horizontal para avanzar
+                    if (Math.abs(diffY) > 60 || Math.abs(diffX) > 60) {
+                        if (diffY > 0 || diffX > 0) {
+                            this.scrollToSlide(this.currentSlide + 1);
+                        } else {
+                            this.scrollToSlide(this.currentSlide - 1);
+                        }
+                    }
+                }, { passive: true });
+            }
+
+            setupWheelNav() {
+                let lastTime = 0;
+                document.addEventListener('wheel', (e) => {
+                    const currentTime = new Date().getTime();
+                    if (currentTime - lastTime < 1200) {
+                        e.preventDefault();
+                        return;
+                    }
+                    
+                    if (Math.abs(e.deltaY) > 30) {
+                        e.preventDefault();
+                        if (e.deltaY > 0) {
+                            this.scrollToSlide(this.currentSlide + 1);
+                        } else {
+                            this.scrollToSlide(this.currentSlide - 1);
+                        }
+                        lastTime = currentTime;
+                    }
+                }, { passive: false });
+            }
+        }
+
+        // ===========================================
+        // CLASE EDITOR INTERACTIVO EN VIVO
+        // ===========================================
+        class InlineEditor {
+            constructor() {
+                this.isActive = false;
+                this.toggleBtn = document.getElementById('editToggle');
+                this.exportBtn = document.getElementById('exportBtn');
+                this.hotzone = document.querySelector('.edit-hotzone');
+                this.hideTimeout = null;
+
+                this.init();
+            }
+
+            init() {
+                // 1. Click en botón toggle
+                this.toggleBtn.addEventListener('click', () => this.toggleEditMode());
+
+                // 2. Click en botón guardar/exportar
+                this.exportBtn.addEventListener('click', () => this.exportHTML());
+
+                // 3. Hover sobre hotzone con 400ms delay
+                this.hotzone.addEventListener('mouseenter', () => {
+                    clearTimeout(this.hideTimeout);
+                    this.toggleBtn.classList.add('show');
+                });
+                this.hotzone.addEventListener('mouseleave', () => {
+                    this.hideTimeout = setTimeout(() => {
+                        if (!this.isActive) this.toggleBtn.classList.remove('show');
+                    }, 400);
+                });
+
+                this.toggleBtn.addEventListener('mouseenter', () => {
+                    clearTimeout(this.hideTimeout);
+                });
+                this.toggleBtn.addEventListener('mouseleave', () => {
+                    this.hideTimeout = setTimeout(() => {
+                        if (!this.isActive) this.toggleBtn.classList.remove('show');
+                    }, 400);
+                });
+
+                // 4. Hotzone click directo
+                this.hotzone.addEventListener('click', () => this.toggleEditMode());
+
+                // 5. Tecla 'E' como atajo de teclado
+                document.addEventListener('keydown', (e) => {
+                    if ((e.key === 'e' || e.key === 'E') && !e.target.getAttribute('contenteditable')) {
+                        e.preventDefault();
+                        this.toggleEditMode();
+                    }
+                });
+
+                // Cargar datos editados previamente si existen
+                this.loadFromStorage();
+            }
+
+            toggleEditMode() {
+                this.isActive = !this.isActive;
+                this.toggleBtn.classList.toggle('active', this.isActive);
+                
+                const label = document.getElementById('editTextLabel');
+                if (this.isActive) {
+                    label.innerText = 'Guardar Modo';
+                    this.toggleBtn.querySelector('svg').innerHTML = '<polyline points="20 6 9 17 4 12"></polyline>'; // Icono Check
+                } else {
+                    label.innerText = 'Editar Texto';
+                    this.toggleBtn.querySelector('svg').innerHTML = '<path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path>'; // Icono Lápiz
+                }
+                
+                // Mostrar/ocultar botón de exportación
+                this.exportBtn.classList.toggle('show', this.isActive);
+
+                // Hacer editables los elementos de texto
+                const editables = document.querySelectorAll('h1, h2, h3, p, li, strong, span.slide-tag');
+                editables.forEach(el => {
+                    // Evitar hacer editables elementos internos de control
+                    if (el.closest('.edit-toggle') || el.closest('.edit-btn-export') || el.closest('.keyboard-hint')) return;
+                    
+                    el.setAttribute('contenteditable', this.isActive ? 'true' : 'false');
+                });
+
+                if (!this.isActive) {
+                    this.saveToStorage();
+                }
+            }
+
+            saveToStorage() {
+                const slidesData = [];
+                const slides = document.querySelectorAll('.slide');
+                slides.forEach((slide, sIdx) => {
+                    const elements = [];
+                    // Guardar contenido y tags
+                    slide.querySelectorAll('[contenteditable]').forEach((el, eIdx) => {
+                        elements.push({
+                            index: eIdx,
+                            tagName: el.tagName,
+                            html: el.innerHTML
+                        });
+                    });
+                    slidesData.push({ slideIndex: sIdx, elements });
+                });
+                localStorage.setItem('dosSolesSlidesData', JSON.stringify(slidesData));
+            }
+
+            loadFromStorage() {
+                const dataStr = localStorage.getItem('dosSolesSlidesData');
+                if (!dataStr) return;
+
+                try {
+                    const slidesData = JSON.parse(dataStr);
+                    const slides = document.querySelectorAll('.slide');
+                    slidesData.forEach(sData => {
+                        const slide = slides[sData.slideIndex];
+                        if (!slide) return;
+                        const editables = slide.querySelectorAll('h1, h2, h3, p, li, strong, span.slide-tag');
+                        sData.elements.forEach(elData => {
+                            const el = editables[elData.index];
+                            if (el && el.tagName === elData.tagName) {
+                                el.innerHTML = elData.html;
+                            }
+                        });
+                    });
+                } catch (e) {
+                    console.error("Error cargando de localStorage:", e);
+                }
+            }
+
+            exportHTML() {
+                // Desactivar temporalmente modo edición para exportar un HTML limpio
+                if (this.isActive) this.toggleEditMode();
+
+                // Clonar todo el documento para remover scripts de edición y botones de control antes de descargar si se prefiere,
+                // pero en este caso queremos que sigan editando, así que exportamos el código actual.
+                const htmlContent = document.documentElement.outerHTML;
+                const blob = new Blob([htmlContent], { type: 'text/html' });
+                const url = URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'presentacion_dos_soles_editada.html';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }
+        }
+
+        // Inicializar controladores
+        window.addEventListener('DOMContentLoaded', () => {
+            new SlidePresentation();
+            new InlineEditor();
+        });
+    </script>
+</body>
+</html>
