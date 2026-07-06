@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dos Soles - Plan Estratégico</title>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #FAF9F6;
+            --bg-gradient: radial-gradient(circle at 80% 20%, rgba(224, 138, 34, 0.12) 0%, rgba(167, 20, 76, 0.08) 45%, #FAF9F6 100%);
+            --text-primary: #121212;
+            --text-secondary: #5C5A56;
+            --accent-brand: #A7144C;
+            --accent-solar: #E08A22;
+            --card-bg: #FFFFFF;
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .brand-header {
+            margin-bottom: 3.5rem;
+        }
+
+        .brand-header span {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent-solar);
+            background: rgba(224, 138, 34, 0.08);
+            padding: 0.5em 1.2em;
+            border-radius: 30px;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .brand-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+        }
+
+        .brand-header h1 em {
+            font-style: normal;
+            color: var(--accent-brand);
+        }
+
+        .brand-header p {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 500;
+        }
+
+        /* Hub Grid */
+        .hub-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .hub-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hub-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--accent-brand);
+            transform: scaleX(0);
+            transition: var(--transition);
+            transform-origin: left;
+        }
+
+        .hub-card.solar::before {
+            background: var(--accent-solar);
+        }
+
+        .hub-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(167, 20, 76, 0.08);
+            border-color: rgba(167, 20, 76, 0.1);
+        }
+
+        .hub-card.solar:hover {
+            box-shadow: 0 20px 50px rgba(224, 138, 34, 0.08);
+            border-color: rgba(224, 138, 34, 0.15);
+        }
+
+        .hub-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            background: rgba(167, 20, 76, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--accent-brand);
+            transition: var(--transition);
+        }
+
+        .hub-card.solar .card-icon {
+            background: rgba(224, 138, 34, 0.06);
+            color: var(--accent-solar);
+        }
+
+        .hub-card:hover .card-icon {
+            transform: scale(1.1);
+        }
+
+        .hub-card h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hub-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 280px;
+        }
+
+        /* Footer info */
+        footer {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .hub-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            body {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header class="brand-header">
+            <span>Dos Soles Distribuidora</span>
+            <h1>Plan Estratégico <em>Digital</em></h1>
+            <p>Accede a los materiales del Plan Estratégico de Marketing, Comunicación y Posicionamiento.</p>
+        </header>
+
+        <div class="hub-grid">
+            
+            <!-- Tarjeta 1: Presentación -->
+            <a href="./presentacion_dos_soles.html" class="hub-card">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                </div>
+                <h2>Presentación Ejecutiva</h2>
+                <p>Diapositivas dinámicas e interactivas de alto impacto con modo de edición de texto en vivo.</p>
+            </a>
+
+            <!-- Tarjeta 2: Documento Estratégico -->
+            <a href="./documento_estrategico_dos_soles.html" class="hub-card solar">
+                <div class="card-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <h2>Documento Estratégico</h2>
+                <p>Plan de marketing y diagnóstico de marca completo con lectura estructurada y menú responsivo.</p>
+            </a>
+
+        </div>
+
+        <footer>
+            &copy; 2026 Dos Soles. Todos los derechos reservados.
+        </footer>
+
+    </div>
+
+</body>
+</html>
